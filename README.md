@@ -1,3 +1,14 @@
+# Billy Bunn's personal website reboot
+
+# 🚧 Currently under construction 🚧
+
+##  Goals
+- At all costs, "infrastructure as code" (I'm going with [AWS Cloud Development Kit (CDK)](https://aws.amazon.com/cdk/))
+- Document and present what I learn in the process of building it
+- A place for showcasing my work
+- A place for writing learnings and musings
+
+
 # Welcome to your CDK TypeScript project!
 
 This is a blank project for TypeScript development with CDK.
