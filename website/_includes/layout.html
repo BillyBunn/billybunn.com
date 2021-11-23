@@ -1,0 +1,30 @@
+{% capture css %}
+{%- render "./css/normalize.css" -%}
+{%- render "./css/base.css" -%}
+{% endcapture %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Billy's website 🚧 Under Construction 🚧" />
+    <title>Billy's website 🚧 Under Construction 🚧</title>
+    <style>{{ css | cssmin }}</style>
+  </head>
+  <body>
+    <header>
+      <h1 style="margin-top: 0px;"><a href="/">Billy Bunn</a></h1>
+      <nav>
+        <ul>
+          <li><a href="/work">Work</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/404">You're lost</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>{% block content %} Default Layout Template {% endblock %}</main>
+    <footer>
+      <span style="font-size: 3em;">✌🏻</span>
+    </footer>
+  </body>
+</html>

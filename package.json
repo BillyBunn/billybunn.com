@@ -13,6 +13,7 @@
     "typescript": "~3.9.7"
   },
   "dependencies": {
+    "@11ty/eleventy": "^1.0.0-beta.8",
     "@aws-cdk/aws-certificatemanager": "^1.132.0",
     "@aws-cdk/aws-cloudfront": "^1.132.0",
     "@aws-cdk/aws-cloudfront-origins": "^1.132.0",
@@ -20,6 +21,7 @@
     "@aws-cdk/aws-route53-targets": "^1.132.0",
     "@aws-cdk/aws-s3": "^1.132.0",
     "@aws-cdk/aws-s3-deployment": "^1.132.0",
-    "@aws-cdk/core": "1.132.0"
+    "@aws-cdk/core": "1.132.0",
+    "clean-css": "^5.2.2"
   }
 }
