@@ -72,12 +72,12 @@ class WebsiteStack extends cdk.Stack {
         {
           httpStatus: 403,
           responseHttpStatus: 404,
-          responsePagePath: "/404.html",
+          responsePagePath: "/404/index.html",
         },
         {
           httpStatus: 404,
           responseHttpStatus: 404,
-          responsePagePath: "/404.html",
+          responsePagePath: "/404/index.html",
         },
       ],
       priceClass: cloudfront.PriceClass.PRICE_CLASS_100,
@@ -93,7 +93,7 @@ class WebsiteStack extends cdk.Stack {
       destinationBucket: websiteBucket,
       distribution: websiteBucketDistribution,
       distributionPaths: ["/*"],
-      sources: [s3Deployment.Source.asset("./website-content")],
+      sources: [s3Deployment.Source.asset("./website/_site")],
     });
 
     /**
