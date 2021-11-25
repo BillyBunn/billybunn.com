@@ -1,6 +1,6 @@
 ---
-title: Contact
 layout: default.html
+title: Contact
 ---
 
 - [Send me an email](mailto:billy@billybunn.com?subject=Inquiry%20from%20billybunn.io)

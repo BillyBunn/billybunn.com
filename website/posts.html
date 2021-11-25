@@ -1,0 +1,6 @@
+<ul>
+  {%- assign sorted = collections.all | sort: 'url' -%}
+  {%- for post in sorted -%}
+  <li><a href="{{ post.url }}">{{ post.url }}</a></li>
+  {%- endfor -%}
+</ul>
