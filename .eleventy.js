@@ -1,11 +1,20 @@
 const fs = require("fs");
-const CleanCSS = require("clean-css");
+const htmlmin = require("html-minifier");
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addWatchTarget("./website/css/");
 
-  eleventyConfig.addFilter("cssmin", function (code) {
-    return new CleanCSS({}).minify(code).styles;
+  eleventyConfig.addTransform("htmlmin", function (content, outputPath) {
+    if (this.outputPath && this.outputPath.endsWith(".html")) {
+      let minified = htmlmin.minify(content, {
+        collapseWhitespace: true,
+        minifyCSS: { level: { 1: { specialComments: "0" } } },
+        removeComments: true,
+        useShortDoctype: true,
+      });
+      return minified;
+    }
+    return content;
   });
 
   eleventyConfig.setBrowserSyncConfig({

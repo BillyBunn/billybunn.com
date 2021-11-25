@@ -1,3 +1,4 @@
+{% assign default_title = "Billy's website 🚧 Under Construction 🚧" %}
 {% capture css %}
 {%- render "./css/normalize.css" -%}
 {%- render "./css/base.css" -%}
@@ -8,8 +9,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="billybunn.io 🚧 Under Construction 🚧" />
-    <title>Billy's website 🚧 Under Construction 🚧</title>
-    <style>{{ css | cssmin }}</style>
+    <title>{% if title %}{{ title }}{% else %}{{ default_title }}{% endif %}</title>
+    <style>{{ css }}</style>
   </head>
   <body>
     <header>
@@ -22,7 +23,7 @@
         </ul>
       </nav>
     </header>
-    <main>{% block content %} Default Layout Template {% endblock %}</main>
+    <main>{{ content }}{% if image %}<img src="{{image}}" />{% endif %}</main>
     <footer>
       <span style="font-size: 5em;">✌🏻</span>
     </footer>

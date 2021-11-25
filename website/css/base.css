@@ -57,5 +57,6 @@ body {
     width: 98%;
   }
 }
-main {
+main img {
+  max-width: 100%;
 }

@@ -4,7 +4,8 @@
   "scripts": {
     "build": "tsc",
     "watch": "tsc -w",
-    "cdk": "cdk"
+    "cdk": "cdk",
+    "eleventy-serve": "npx @11ty/eleventy --serve --formats=md,jpg,png"
   },
   "devDependencies": {
     "@types/node": "10.17.27",
@@ -22,6 +23,6 @@
     "@aws-cdk/aws-s3": "^1.132.0",
     "@aws-cdk/aws-s3-deployment": "^1.132.0",
     "@aws-cdk/core": "1.132.0",
-    "clean-css": "^5.2.2"
+    "html-minifier": "^4.0.0"
   }
 }
