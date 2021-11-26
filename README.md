@@ -51,6 +51,14 @@ Webpage up and running. Redirects and everything.
     //   zone: websiteHostedZone,
     // });
 
+#### 2021-11-25
+Using 11ty! Did some configuration, moved over old posts.
+
+#### 2021-11-26
+Added lambda@edge function for "default directory indexes" https://aws.amazon.com/blogs/compute/implementing-default-directory-indexes-in-amazon-s3-backed-amazon-cloudfront-origins-using-lambdaedge/
+
+      // architecture: lambda.Architecture.ARM_64,
+      // "Invalid request provided: Lambda@Edge does not support functions with an architecture of arm64
 
 
 ## Ideas
