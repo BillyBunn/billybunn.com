@@ -5,7 +5,7 @@ description: A calculator inspired by the 1987 Dieter Rams-designed Braun ET66.
 source: https://github.com/BillyBunn/calculator-ts
 tags: React, TypeScript
 image: ./typescript-calculator.png
-layout: default.html
+layout: post.njk
 ---
 
 

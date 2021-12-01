@@ -1,9 +1,11 @@
-{% assign default_title = "Billy's website 🚧 Under Construction 🚧" %}
-{% capture css %}
-{%- include "./css/normalize.css" -%}
-{%- include "./css/base.css" -%}
-{%- include "./css/font-size.css" -%}
-{% endcapture %}
+---
+title: "Billy's website 🚧 Under Construction 🚧"
+---
+{% set css %}
+{% include "../css/normalize.css" %}
+{% include "../css/base.css" %}
+{% include "../css/font-size.css" %}
+{% endset %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,9 +13,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="billybunn.io 🚧 Under Construction 🚧" />
-  <title>{% if title %}{{ title }}{% else %}{{ default_title }}{% endif %}</title>
+  <title>{{ title }}</title>
   <style>
-    {{ css }}    
+    {{ css | safe }}    
   </style>
 </head>
 
@@ -29,8 +31,7 @@
       </nav>
     </div>
   </header>
-  <main class="layout">{% if title %}<h1>{{ title }}{% endif %}</h1>{{ content }}{% if image %}<img src="{{image}}" />{%
-    endif %}</main>
+  <main>{{ content | safe }}</main>
   <footer>
     <div class="layout">
       <span style="font-size: 5em;">✌🏻</span>

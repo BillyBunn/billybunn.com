@@ -1,6 +1,6 @@
 # Billy Bunn's personal website reboot
 
-# 🚧 Currently under construction 🚧
+### 🚧 Currently under construction 🚧
 
 ## Goals
 
@@ -60,6 +60,22 @@ Added lambda@edge function for "default directory indexes" https://aws.amazon.co
       // architecture: lambda.Architecture.ARM_64,
       // "Invalid request provided: Lambda@Edge does not support functions with an architecture of arm64
 
+#### 2021-12-01
+- made fluid type/space scale from utopia.fyi
+- added basic layout and font styles
+
+#### 2021-12-01
+- Code up on GitHub!
+- fowarded some of my other domains to billybunn.io (many fun TLDs not yet available for AWS Route53 registration)
+
+### TODO
+- fix layout in article
+- update homepage
+- changelog page
+- DNSSEC in Route53 (see if using CDK is possible)
+- webfont
+- consider dynamic font, link change on hover
+- resources, inspiration for site page
 
 ## Ideas
 - up on GitHub

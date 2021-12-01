@@ -5,7 +5,7 @@ description: A to-do list app in pure, vanilla JavaScript.
 source: https://github.com/BillyBunn/chekov
 tags: VanillaJS
 image: ./checkov-logo.png
-layout: default.html
+layout: post.njk
 ---
 
 Chekov is to-do list app written in pure, vanilla JavaScript. It allows users to create multiple to-do lists and add, edit, and delete tasks on each list. Data is persisted across browser sessions using local storage.

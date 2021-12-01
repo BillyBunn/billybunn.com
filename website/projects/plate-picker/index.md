@@ -5,7 +5,7 @@ description: A barbell plate calculator built with React and Material UI
 source: https://github.com/BillyBunn/plate-picker
 tags: React
 image: ./plate-picker-1.png
-layout: default.html
+layout: post.njk
 ---
 
 Plate Picker is a tool to help you save time at the gym and pick the right plates to put on the bar. Enter your target weight and available plates—Plate Picker does the rest.

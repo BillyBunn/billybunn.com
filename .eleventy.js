@@ -4,6 +4,10 @@ const htmlmin = require("html-minifier");
 module.exports = function (eleventyConfig) {
   eleventyConfig.addWatchTarget("./website/css/");
 
+  /**
+   * Minifies HTML and CSS, removes comments
+   * https://www.11ty.dev/docs/config/#transforms
+   */
   eleventyConfig.addTransform("htmlmin", function (content, outputPath) {
     if (this.outputPath && this.outputPath.endsWith(".html")) {
       let minified = htmlmin.minify(content, {
@@ -17,6 +21,9 @@ module.exports = function (eleventyConfig) {
     return content;
   });
 
+  /**
+   * Servers 404 page on errors
+   */
   eleventyConfig.setBrowserSyncConfig({
     callbacks: {
       ready: function (err, bs) {

@@ -1,5 +1,6 @@
 ---
-layout: default.html
+layout: page.njk
+title: false
 ---
 
 # The start of something great.

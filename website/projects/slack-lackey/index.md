@@ -5,7 +5,7 @@ description: A Slack bot that detects code in messages and saves them as a GitHu
 source: https://github.com/slack-lackey/docs
 tags: Express, MongoDB, Node
 image: ./slack-lackey-logo.png
-layout: default.html
+layout: post.njk
 ---
 
 <!-- ![Robot icon for Slack Lackey](./slack-lackey-logo.png) -->

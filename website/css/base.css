@@ -27,19 +27,19 @@ a:visited {
   width: 780px; /* TODO: adjust for ideal line length */
 }
 /* Main layout */
-main.layout {
+.layout {
   align-items: flex-start;
   display: flex;
   flex-direction: column;
   padding-bottom: var(--step-5);
   padding-top: var(--step-2);
 }
-main.layout > h1,
-main.layout > h2,
-main.layout > h3,
-main.layout > h4,
-main.layout > h5,
-main.layout > h6 {
+.layout > h1,
+.layout > h2,
+.layout > h3,
+.layout > h4,
+.layout > h5,
+.layout > h6 {
   margin-left: calc((100% - 780px) / 2);
   margin-right: auto;
   max-width: 100%;
@@ -47,21 +47,21 @@ main.layout > h6 {
 }
 /* 780 + 0.04*X = X, X = 812.5 */
 @media screen and (max-width: 821.5px) {
-  main.layout > h1,
-  main.layout > h2,
-  main.layout > h3,
-  main.layout > h4,
-  main.layout > h5,
-  main.layout > h6 {
+  .layout > h1,
+  .layout > h2,
+  .layout > h3,
+  .layout > h4,
+  .layout > h5,
+  .layout > h6 {
     margin-left: 0;
   }
 }
 
-main.layout > :first-child {
+.layout > :first-child {
   margin-top: 0;
 }
 
-main.layout > :last-child {
+.layout > :last-child {
   margin-bottom: 0;
 }
 
@@ -70,15 +70,15 @@ main.layout > :last-child {
   --main-top-gap: var(--step--1);
 }
 
-main.layout > * {
+.layout > * {
   margin-bottom: var(--main-bottom-gap);
   margin-top: var(--main-top-gap);
 }
 
-main.layout > h1,
-main.layout > h2,
-main.layout > h3,
-main.layout > h4 {
+.layout > h1,
+.layout > h2,
+.layout > h3,
+.layout > h4 {
   --main-bottom-gap: var(--step--2);
   --main-top-gap: var(--step-0);
 }

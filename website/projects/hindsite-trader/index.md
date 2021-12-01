@@ -5,7 +5,7 @@ description: A stock price querying and charting app to look back in time.
 image: ./hindsite-trader-2.png
 source: https://github.com/project-301/HindSiteTrader.com
 tags: Express, PostgreSQL, Node
-layout: default.html
+layout: post.njk
 ---
 
 HindSite Trader is a website that lets you look back in time and see what your investment would be worth if you had invested in any publicly traded company in the U.S. at a given point in time. You can also save your searches and come back to them later to cry over your poor investment choices.
