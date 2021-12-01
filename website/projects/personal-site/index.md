@@ -5,6 +5,7 @@ description: My personal Gatsby.js website listing my projects.
 source: https://github.com/BillyBunn/billybunn.github.io
 tags: React, GraphQL
 image: ./personal-site-2.png
+layout: default.html
 ---
 
 My personal portfolio website built with [Gatsby.js](https://www.gatsbyjs.org/). A fun venture into the JAM stack and a constant work-in-progress.

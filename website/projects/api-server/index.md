@@ -5,6 +5,7 @@ description: Extensible REST API server with CRUD methods. Built with Express in
 source: https://github.com/BillyBunn/api-server-basic
 tags: Express, Node, MongoDB
 image: ./api-server-1.png
+layout: default.html
 ---
 
 Extensible REST API server with CRUD methods. Intended to integrate various data models through a common API. Built with [Express](https://expressjs.com/) in [Node.js](https://nodejs.org/en/).

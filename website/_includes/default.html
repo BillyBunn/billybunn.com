@@ -1,67 +1,41 @@
 {% assign default_title = "Billy's website 🚧 Under Construction 🚧" %}
 {% capture css %}
-{%- render "./css/normalize.css" -%}
-{%- render "./css/base.css" -%}
+{%- include "./css/normalize.css" -%}
+{%- include "./css/base.css" -%}
+{%- include "./css/font-size.css" -%}
 {% endcapture %}
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="billybunn.io 🚧 Under Construction 🚧" />
-    <title>{% if title %}{{ title }}{% else %}{{ default_title }}{% endif %}</title>
-    <style>{{ css }}
-    #move {
-      /* animation properties */
-      /* -moz-transform: translateX(-50%);
-      -webkit-transform: translateX(-50%);
-      transform: translateX(-50%); */
-      
-      animation: move 18s linear infinite;
-      -moz-animation: move 18s linear infinite;
-      -webkit-animation: move 18s linear infinite;
-    }
 
-    /* for Firefox */
-    @-moz-keyframes move {
-      from { -moz-transform: translateX(-50%); }
-      to { -moz-transform: translateX(140%); }
-    }
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="billybunn.io 🚧 Under Construction 🚧" />
+  <title>{% if title %}{{ title }}{% else %}{{ default_title }}{% endif %}</title>
+  <style>
+    {{ css }}    
+  </style>
+</head>
 
-    /* for Chrome */
-    @-webkit-keyframes move {
-      from { -webkit-transform: translateX(-50%); }
-      to { -webkit-transform: translateX(140%); }
-    }
-
-    @keyframes move {
-      from {
-        -moz-transform: translateX(-50%);
-        -webkit-transform: translateX(-50%);
-        transform: translateX(-50%);
-      }
-      to {
-        -moz-transform: translateX(140%);
-        -webkit-transform: translateX(140%);
-        transform: translateX(140%);
-      }
-    }
-    </style>
-  </head>
-  <body>
-    <header>
-      <h1 style="margin-top: 0px;"><a href="/">Billy Bunn</a></h1>
-      <div id="move-container"><p id="move">🚧 UNDER CONSTRUCTION 🚧</p></div>
+<body>
+  <header>
+    <div class='layout'>
+      <h1><a href="/">Billy Bunn</a></h1>
       <nav>
-        <ul>          
+        <ul>
           <li><a href="/posts/">Posts</a></li>
           <li><a href="/404/">You're lost</a></li>
         </ul>
       </nav>
-    </header>
-    <main>{% if title %}<h1>{{ title }}{% endif %}</h1>{{ content }}{% if image %}<img src="{{image}}" />{% endif %}</main>
-    <footer>
+    </div>
+  </header>
+  <main class="layout">{% if title %}<h1>{{ title }}{% endif %}</h1>{{ content }}{% if image %}<img src="{{image}}" />{%
+    endif %}</main>
+  <footer>
+    <div class="layout">
       <span style="font-size: 5em;">✌🏻</span>
-    </footer>
-  </body>
+    </div>
+  </footer>
+</body>
+
 </html>

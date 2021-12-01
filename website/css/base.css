@@ -1,20 +1,104 @@
 body {
-  background-color: #000;
-  color: #fff;
+  background-color: #1b1b1b;
+  color: #fdfdfd;
+  display: block;
+  flex-flow: column nowrap;
   font-family: system-ui, sans-serif;
   margin: 0;
 }
-/* h1,
-p,
-li {
-  background-color: #fff;
-  color: #000;
-  font-weight: 400;
-} */
 
-/* a:visited {
+a,
+a:visited {
   color: inherit;
-} */
+}
+
+.layout {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 95%;
+  padding-left: var(--fluid-1);
+  padding-right: var(--fluid-1);
+  width: 1440px;
+}
+.layout > * {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+  width: 780px; /* TODO: adjust for ideal line length */
+}
+/* Main layout */
+main.layout {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: var(--step-5);
+  padding-top: var(--step-2);
+}
+main.layout > h1,
+main.layout > h2,
+main.layout > h3,
+main.layout > h4,
+main.layout > h5,
+main.layout > h6 {
+  margin-left: calc((100% - 780px) / 2);
+  margin-right: auto;
+  max-width: 100%;
+  width: auto;
+}
+/* 780 + 0.04*X = X, X = 812.5 */
+@media screen and (max-width: 821.5px) {
+  main.layout > h1,
+  main.layout > h2,
+  main.layout > h3,
+  main.layout > h4,
+  main.layout > h5,
+  main.layout > h6 {
+    margin-left: 0;
+  }
+}
+
+main.layout > :first-child {
+  margin-top: 0;
+}
+
+main.layout > :last-child {
+  margin-bottom: 0;
+}
+
+:root {
+  --main-bottom-gap: var(--step--1);
+  --main-top-gap: var(--step--1);
+}
+
+main.layout > * {
+  margin-bottom: var(--main-bottom-gap);
+  margin-top: var(--main-top-gap);
+}
+
+main.layout > h1,
+main.layout > h2,
+main.layout > h3,
+main.layout > h4 {
+  --main-bottom-gap: var(--step--2);
+  --main-top-gap: var(--step-0);
+}
+
+main img {
+  max-width: 100%;
+}
+
+/* Header layout */
+header .layout {
+  padding-bottom: var(--step-1);
+  padding-top: var(--step-1);
+}
+header .layout > :first-child {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+header .layout > :last-child {
+  margin-bottom: 0;
+}
 
 header h1 a {
   text-decoration: none;
@@ -26,24 +110,11 @@ nav ul {
   margin: 0;
   padding: 0;
 }
+
 nav ul li:not(:first-child) {
   margin-left: 1em;
 }
-a,
-a:visited {
-  color: inherit;
-}
 
-body {
-  margin: 0 auto;
-  max-width: 1000px;
-  width: 95%;
-}
-@media (max-width: 500px) {
-  body {
-    width: 98%;
-  }
-}
-main img {
-  max-width: 100%;
+footer .layout > * {
+  display: block;
 }

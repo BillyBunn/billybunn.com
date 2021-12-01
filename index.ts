@@ -59,7 +59,7 @@ class WebsiteStack extends cdk.Stack {
 
     /**
      * Lambda@Edge to serve index.html file for simple URLS
-     * e.g., 'domain.com/about' instead of 'domain.com/about/index.html'
+     * e.g., 'domain.com/about/' instead of 'domain.com/about/index.html'
      * https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-cloudfront.experimental.EdgeFunction.html
      * https://aws.amazon.com/blogs/compute/implementing-default-directory-indexes-in-amazon-s3-backed-amazon-cloudfront-origins-using-lambdaedge/
      */
