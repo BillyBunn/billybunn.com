@@ -1,0 +1,10 @@
+---
+title: Projects
+layout: page.njk
+---
+<ul>
+  {%- assign sorted = collections.projects | sort: 'url' -%}
+  {%- for project in sorted -%}
+  <li><a href="{{ project.url }}">{{ project.url }}</a></li>
+  {%- endfor -%}
+</ul>

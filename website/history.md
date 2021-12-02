@@ -42,3 +42,13 @@ see some of that work [here](../projects).
 
 I also worked as a private tutor for Code Fellows. I taught students one-on-one in the basics of
 programming and JavaScript fundamentals.
+
+### Getting paid… to code?
+
+After my coding bootcamp, I started working as a fullstack web developer at [Hestan Smart Cooking](https://www.hestancue.com/).
+
+Their main product, the Hestan Cue, is an app-controlled induction burner and line of temperature-sensing cookware. 
+
+It's a treat to work alongside fantastic developers *and* professional chefs—the company employs chefs and culinary scientists who develop recipes with precise time and temperature-based algorithms. (I.e., it's impossible to screw up.)
+
+Food + code = 🧡

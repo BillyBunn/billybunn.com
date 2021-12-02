@@ -5,7 +5,8 @@
     "build": "tsc",
     "watch": "tsc -w",
     "cdk": "cdk",
-    "eleventy-serve": "npx @11ty/eleventy --serve --formats=md,html,jpg,png"
+    "eleventy-serve": "npx @11ty/eleventy --serve --formats=md,html,jpg,png",
+    "eleventy": "npx @11ty/eleventy --formats=md,html,jpg,png"
   },
   "devDependencies": {
     "@types/node": "10.17.27",

@@ -4,6 +4,10 @@ const htmlmin = require("html-minifier");
 module.exports = function (eleventyConfig) {
   eleventyConfig.addWatchTarget("./website/css/");
 
+  eleventyConfig.addCollection("projects", function (collectionApi) {
+    return collectionApi.getFilteredByGlob("**/projects/*/*");
+  });
+
   /**
    * Minifies HTML and CSS, removes comments
    * https://www.11ty.dev/docs/config/#transforms

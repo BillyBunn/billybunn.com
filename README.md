@@ -67,9 +67,9 @@ Added lambda@edge function for "default directory indexes" https://aws.amazon.co
 #### 2021-12-01
 - Code up on GitHub!
 - fowarded some of my other domains to billybunn.io (many fun TLDs not yet available for AWS Route53 registration)
+- fixed basic 11ty layout chaining and CSS positioning
 
 ### TODO
-- fix layout in article
 - update homepage
 - changelog page
 - DNSSEC in Route53 (see if using CDK is possible)
@@ -88,6 +88,7 @@ Added lambda@edge function for "default directory indexes" https://aws.amazon.co
 - posts about Plex
 - posts about Usenet
 - integration with medium?
+- 'last updated/deployed' badge in footer
 
 
 
