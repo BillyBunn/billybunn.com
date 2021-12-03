@@ -8,6 +8,10 @@ module.exports = function (eleventyConfig) {
     return collectionApi.getFilteredByGlob("**/projects/*/*");
   });
 
+  eleventyConfig.addCollection("posts", function (collectionApi) {
+    return collectionApi.getFilteredByGlob("**/posts/*/*");
+  });
+
   /**
    * Minifies HTML and CSS, removes comments
    * https://www.11ty.dev/docs/config/#transforms

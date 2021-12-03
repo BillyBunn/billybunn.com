@@ -1,6 +1,6 @@
 ---
 title: TypeScript Calculator
-date: "2019-10-11"
+date: 2019-10-11
 description: A calculator inspired by the 1987 Dieter Rams-designed Braun ET66.
 source: https://github.com/BillyBunn/calculator-ts
 tags: React, TypeScript

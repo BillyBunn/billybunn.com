@@ -1,6 +1,6 @@
 ---
 title: HindSite Trader
-date: "2019-03-08"
+date: 2019-03-08
 description: A stock price querying and charting app to look back in time.
 image: ./hindsite-trader-2.png
 source: https://github.com/project-301/HindSiteTrader.com

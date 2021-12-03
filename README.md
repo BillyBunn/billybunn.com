@@ -69,13 +69,20 @@ Added lambda@edge function for "default directory indexes" https://aws.amazon.co
 - fowarded some of my other domains to billybunn.io (many fun TLDs not yet available for AWS Route53 registration)
 - fixed basic 11ty layout chaining and CSS positioning
 
+#### 2021-12-02
+- added collection and index page for projects, updated some other pages
+- first new post
+
 ### TODO
-- update homepage
 - changelog page
 - DNSSEC in Route53 (see if using CDK is possible)
 - webfont
 - consider dynamic font, link change on hover
 - resources, inspiration for site page
+- get rid of weird heading layout idea
+- GitHub workflow
+      - when changes are made to `website/_site/*` (the 11ty build) on master branch, upload to the s3 bucket
+      - make sure bucket deployment lambda is triggered...
 
 ## Ideas
 - up on GitHub

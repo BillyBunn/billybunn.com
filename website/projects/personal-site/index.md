@@ -1,6 +1,6 @@
 ---
 title: Personal Website
-date: "2019-07-07"
+date: 2019-07-07
 description: My personal Gatsby.js website listing my projects.
 source: https://github.com/BillyBunn/billybunn.github.io
 tags: React, GraphQL

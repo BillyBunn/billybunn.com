@@ -1,6 +1,6 @@
 ---
 title: Express CRUD API Server
-date: "2019-08-27"
+date: 2019-08-27
 description: Extensible REST API server with CRUD methods. Built with Express in Node.js.
 source: https://github.com/BillyBunn/api-server-basic
 tags: Express, Node, MongoDB

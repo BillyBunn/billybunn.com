@@ -27,7 +27,7 @@ I enjoyed working on small teams to serve clients and their
 users/customers, but I realized that my coding hobby was more suited for
 my passions—building solutions to people's problems and constant learning.
 
-### The Transition to Coding
+### Coding bootcamp career change
 
 In late 2018, I took a leap and left the finance world to study coding and
 develop software full-time. I attended an intensive 20 week software

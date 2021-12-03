@@ -1,6 +1,6 @@
 ---
 title: Plate Picker
-date: "2019-07-27"
+date: 2019-07-27
 description: A barbell plate calculator built with React and Material UI
 source: https://github.com/BillyBunn/plate-picker
 tags: React

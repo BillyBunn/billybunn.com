@@ -1,6 +1,6 @@
 ---
 title: Checkov
-date: "2019-02-01"
+date: 2019-02-01
 description: A to-do list app in pure, vanilla JavaScript.
 source: https://github.com/BillyBunn/chekov
 tags: VanillaJS
