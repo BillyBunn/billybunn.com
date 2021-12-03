@@ -73,6 +73,9 @@ Added lambda@edge function for "default directory indexes" https://aws.amazon.co
 - added collection and index page for projects, updated some other pages
 - first new post
 
+#### 2021-12-03
+- adds changelog page
+
 ### TODO
 - changelog page
 - DNSSEC in Route53 (see if using CDK is possible)
