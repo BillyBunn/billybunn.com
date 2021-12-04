@@ -2,7 +2,7 @@
 layout: homepage.njk
 ---
 
-# The [start](/posts/new-beginnings/) of something great.
+## The [start](/posts/new-beginnings/) of something great.
 This website is currently under construction. 🏗🔨🚧
 
 It belongs to Billy Bunn, a web developer based in Seattle, WA.

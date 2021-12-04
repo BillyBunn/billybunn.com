@@ -2,8 +2,8 @@
   {
     "body": "MVP: There should be a page with a list of changes, organized by date\nConsider: Generate these changes based on github PR merges, with commit titles and descriptions",
     "bodyHTML": "<p dir=\"auto\">MVP: There should be a page with a list of changes, organized by date<br>\nConsider: Generate these changes based on github PR merges, with commit titles and descriptions</p>",
-    "closed": false,
-    "closedAt": null,
+    "closed": true,
+    "closedAt": "2021-12-04T01:31:01Z",
     "createdAt": "2021-12-03T19:28:12Z",
     "title": "Needs a changelog",
     "url": "https://github.com/BillyBunn/billybunn.com/issues/1"
