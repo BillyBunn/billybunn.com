@@ -2,27 +2,53 @@
 layout: page.njk
 title: Changelog
 ---
-<h3>Merged GitHub pull requests</h3>
-<ul>
+  <style>
+  section > :first-child, section article > :first-child {
+    margin-top: 0;
+  }
+  section > :last-child, section article > :last-child {
+    margin-bottom: 0;
+  }
+  section h1,
+  section h2,
+  section h3,
+  section h4,
+  section h5,
+  section h6 {
+    margin-bottom: var(--step-0);
+  }
+  section article h1,
+  section article h2,
+  section article h3,
+  section article h4,
+  section article h5,
+  section article h6 {
+    margin-bottom: var(--step--2);
+  }
+  .done, .done a {
+    text-decoration: line-through;
+    text-decoration-color: #fbfbfb;
+  }
+  </style>
+<section>
+  <h2>Merged GitHub pull requests</h2>
   {% for pr in githubPrs %}
   {% set date = pr.createdAt.substring(0, 10) %}
-  <li>
-    <a href="{{ pr.url }}"><time datetime="{{ date }}">{{ date }}</time> · {{ pr.title }}</a>
+  <article>
+    <h3><a href="{{ pr.url }}"><time datetime="{{ date }}">{{ date }}</time> · {{ pr.title }}</a></h3>
     {# {% if pr.body %}<p>{{ pr.body }}</p>{% endif %} #}
     {# using bodyHTML for now because it includes linked issue URLs. However, adds a bunch of GitHub-generated HTML attributes… #}
     {% if pr.bodyHTML %}{{ pr.bodyHTML | safe }}{% endif %}
-  </li>
+  </article>
   {% endfor %}
-</ul>
- 
-<h3>Issues</h3>
-<ul>
+</section>
+<section>
+  <h2>Issues</h2>
   {% for issue in githubIssues %}
   {% set date = issue.createdAt.substring(0, 10) %}
-  <li {% if issue.closed %}style="text-decoration: line-through;"{% endif %}>
-    <a href="{{ issue.url }}"><time datetime="{{ date }}">{{ date }}</time> · {{ issue.title }}</a>
+  <article {% if issue.closed %}class="done"{% endif %}>
+    <h3><a href="{{ issue.url }}"><time datetime="{{ date }}">{{ date }}</time> · {{ issue.title }}</a></h3>
     {% if issue.bodyHTML %}{{ issue.bodyHTML | safe }}{% endif %}
-  </li>
+  </article>
   {% endfor %}
-</ul>
- 
+</section>
