@@ -1,0 +1,28 @@
+---
+layout: page.njk
+title: Changelog
+---
+<h3>Merged GitHub pull requests</h3>
+<ul>
+  {% for pr in githubPrs %}
+  {% set date = pr.createdAt.substring(0, 10) %}
+  <li>
+    <a href="{{ pr.url }}"><time datetime="{{ date }}">{{ date }}</time> · {{ pr.title }}</a>
+    {# {% if pr.body %}<p>{{ pr.body }}</p>{% endif %} #}
+    {# using bodyHTML for now because it includes linked issue URLs. However, adds a bunch of GitHub-generated HTML attributes… #}
+    {% if pr.bodyHTML %}{{ pr.bodyHTML | safe }}{% endif %}
+  </li>
+  {% endfor %}
+</ul>
+ 
+<h3>Issues</h3>
+<ul>
+  {% for issue in githubIssues %}
+  {% set date = issue.createdAt.substring(0, 10) %}
+  <li {% if issue.closed %}style="text-decoration: line-through;"{% endif %}>
+    <a href="{{ issue.url }}"><time datetime="{{ date }}">{{ date }}</time> · {{ issue.title }}</a>
+    {% if issue.bodyHTML %}{{ issue.bodyHTML | safe }}{% endif %}
+  </li>
+  {% endfor %}
+</ul>
+ 

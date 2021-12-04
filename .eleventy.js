@@ -1,15 +1,17 @@
 const fs = require("fs");
 const htmlmin = require("html-minifier");
+const { getPullRequests, getIssues } = require("./github.ts");
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addWatchTarget("./website/css/");
-
-  eleventyConfig.addCollection("projects", function (collectionApi) {
-    return collectionApi.getFilteredByGlob("**/projects/*/*");
-  });
+  eleventyConfig.ignores.add("./website/_data/**");
 
   eleventyConfig.addCollection("posts", function (collectionApi) {
     return collectionApi.getFilteredByGlob("**/posts/*/*");
+  });
+
+  eleventyConfig.addCollection("projects", function (collectionApi) {
+    return collectionApi.getFilteredByGlob("**/projects/*/*");
   });
 
   /**

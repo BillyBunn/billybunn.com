@@ -5,8 +5,8 @@
     "build": "tsc",
     "watch": "tsc -w",
     "cdk": "cdk",
-    "eleventy-serve": "npx @11ty/eleventy --serve --formats=md,html,jpg,png",
-    "eleventy": "npx @11ty/eleventy --formats=md,html,jpg,png"
+    "eleventy-serve": "node github.ts && npx @11ty/eleventy --serve --formats=md,html,njk,jpg,png",
+    "eleventy": "npx @11ty/eleventy --formats=md,html,njk,jpg,png"
   },
   "devDependencies": {
     "@types/node": "10.17.27",
@@ -25,6 +25,8 @@
     "@aws-cdk/aws-s3": "^1.132.0",
     "@aws-cdk/aws-s3-deployment": "^1.132.0",
     "@aws-cdk/core": "1.132.0",
+    "@octokit/graphql": "^4.8.0",
+    "dotenv": "^10.0.0",
     "html-minifier": "^4.0.0"
   }
 }
