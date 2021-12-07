@@ -3,6 +3,13 @@ layout: page.njk
 title: Changelog
 ---
   <style>
+  section article {
+    padding-bottom: var(--step-1);
+    padding-top: var(--step-1);
+  }
+  section > article:first-of-type {
+    padding-top: 0;
+  }
   section > :first-child, section article > :first-child {
     margin-top: 0;
   }
@@ -31,7 +38,7 @@ title: Changelog
   }
   </style>
 <section>
-  <h2>Merged GitHub pull requests</h2>
+  <h2>Merged pull requests</h2>
   {% for pr in githubPrs %}
   {% set date = pr.createdAt.substring(0, 10) %}
   <article>

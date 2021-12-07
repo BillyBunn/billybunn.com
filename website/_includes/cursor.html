@@ -1,0 +1,282 @@
+<style>
+  :root {
+    --mouseX: -12vmin;
+    --mouseY: -12vmin;
+    --bg-color: #1b1b1b;
+    --bg-size: 900vw;
+    --bg-size-text: calc(var(--bg-size) - ((100vh - 1440px) / 2));
+    --text-color: #fdfdfd;
+    --light-size: 12vmin;
+  }
+
+  html {
+    background: var(--bg-color);
+  }
+
+  body {
+    background-image: radial-gradient(circle at var(--mouseX) var(--mouseY),
+        transparent 1px,
+        var(--bg-color) var(--light-size));
+    color: var(--text-color);
+    position: relative;
+  }
+
+  body::before {
+    animation: gradientBackgroundAnimation 60s ease-out infinite;
+    background: linear-gradient(to right,
+        #ff00c1,
+        #9600ff,
+        #4900ff,
+        #00b8ff,
+        #00fff9,
+        #00b8ff,
+        #4900ff,
+        #9600ff,
+        #ff00c1);
+    background-size: var(--bg-size) var(--bg-size);
+    bottom: 0;
+    content: "";
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: -1;
+    -webkit-animation: gradientBackgroundAnimation 60s ease-out infinite;
+    -moz-animation: gradientBackgroundAnimation 60s ease-out infinite;
+  }
+
+  /* Text with changing gradient color */
+  .gradient-text,
+  h1 a,
+  h2 a,
+  h3 a,
+  h4 a,
+  h5 a,
+  h6 a {
+    animation: gradientBackgroundAnimation 60s ease-out infinite;
+    background: linear-gradient(to right,
+        #ff00c1,
+        #9600ff,
+        #4900ff,
+        #00b8ff,
+        #00fff9,
+        #00b8ff,
+        #4900ff,
+        #9600ff,
+        #ff00c1);
+    background-clip: text;
+    background-size: var(--bg-size) var(--bg-size);
+    box-decoration-break: clone;
+    color: transparent;
+    filter: drop-shadow(0.1em 0.1em 1em var(--bg-color));
+    text-decoration: none;
+    text-decoration-color: var(--text-color) !important;
+    -moz-animation: gradientBackgroundAnimation 60s ease-out infinite;
+    -webkit-animation: gradientBackgroundAnimation 60s ease-out infinite;
+    -webkit-background-clip: text;
+    -webkit-box-decoration-break: clone;
+  }
+
+  a.gradient-text,
+  .gradient-text a,
+  main a {
+    animation: gradientBackgroundAnimation 60s ease-out infinite, linkUnderlineAnimation 22s ease-out infinite;
+    filter: drop-shadow(0.1em 0.1em 1em var(--bg-color));
+    text-decoration-color: #ff00c1;
+    text-decoration-skip: edges;
+    text-decoration-style: solid;
+    text-decoration-thickness: 0.1em;
+    ;
+    -moz-animation: gradientBackgroundAnimation 60s ease-out infinite, linkUnderlineAnimation 22s ease-out infinite;
+    -webkit-animation: gradientBackgroundAnimation 60s ease-out infinite, linkUnderlineAnimation 22s ease-out infinite;
+  }
+
+  @-webkit-keyframes linkUnderlineAnimation {
+    0% {
+      text-decoration-color: #ff00c1;
+    }
+
+    12.5% {
+      text-decoration-color: #9600ff;
+    }
+
+    25% {
+      text-decoration-color: #4900ff;
+    }
+
+    37.5% {
+      text-decoration-color: #00b8ff;
+    }
+
+    50% {
+      text-decoration-color: #00fff9;
+    }
+
+    62.5% {
+      text-decoration-color: #00b8ff;
+    }
+
+    75% {
+      text-decoration-color: #4900ff;
+    }
+
+    87.5% {
+      text-decoration-color: #9600ff;
+    }
+
+    100% {
+      text-decoration-color: #ff00c1;
+    }
+  }
+
+  @-moz-keyframes linkUnderlineAnimation {
+    0% {
+      text-decoration-color: #ff00c1;
+    }
+
+    12.5% {
+      text-decoration-color: #9600ff;
+    }
+
+    25% {
+      text-decoration-color: #4900ff;
+    }
+
+    37.5% {
+      text-decoration-color: #00b8ff;
+    }
+
+    50% {
+      text-decoration-color: #00fff9;
+    }
+
+    62.5% {
+      text-decoration-color: #00b8ff;
+    }
+
+    75% {
+      text-decoration-color: #4900ff;
+    }
+
+    87.5% {
+      text-decoration-color: #9600ff;
+    }
+
+    100% {
+      text-decoration-color: #ff00c1;
+    }
+  }
+
+  @keyframes linkUnderlineAnimation {
+    0% {
+      text-decoration-color: #ff00c1;
+    }
+
+    12.5% {
+      text-decoration-color: #9600ff;
+    }
+
+    25% {
+      text-decoration-color: #4900ff;
+    }
+
+    37.5% {
+      text-decoration-color: #00b8ff;
+    }
+
+    50% {
+      text-decoration-color: #00fff9;
+    }
+
+    62.5% {
+      text-decoration-color: #00b8ff;
+    }
+
+    75% {
+      text-decoration-color: #4900ff;
+    }
+
+    87.5% {
+      text-decoration-color: #9600ff;
+    }
+
+    100% {
+      text-decoration-color: #ff00c1;
+    }
+  }
+
+
+  @-webkit-keyframes gradientBackgroundAnimation {
+    0% {
+      background-position: 0% 50%;
+    }
+
+    50% {
+      background-position: 100% 50%;
+    }
+
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  @-moz-keyframes gradientBackgroundAnimation {
+    0% {
+      background-position: 0% 50%;
+    }
+
+    50% {
+      background-position: 100% 50%;
+    }
+
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  @keyframes gradientBackgroundAnimation {
+    0% {
+      background-position: 0% 50%;
+    }
+
+    50% {
+      background-position: 100% 50%;
+    }
+
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+</style>
+
+<script>
+  function setCssVars(e) {
+    // let x = e.pageX,
+    //   y = e.pageY;
+    let x = e.clientX + document.documentElement.scrollTop,
+      y = e.clientY + document.documentElement.scrollLeft;
+    let offset = document.documentElement.offset();
+    console.log({ offset })
+    document.documentElement.style.setProperty('--mouseX', x + 'px')
+    document.documentElement.style.setProperty('--mouseY', y + 'px')
+  }
+  let root = document.documentElement;
+
+  // let spotLightSize = 12,
+  //   maxSize = 12;
+  // let intervalId;
+  // function shrinkSpotlight() {
+  //   spotLightSize -= 0.1;
+  //   root.style.setProperty('--light-size', spotLightSize + "vmin");
+  // }
+  root.addEventListener("mousemove", e => {
+    let x = e.clientX + document.documentElement.scrollLeft;
+    let y = e.clientY + document.documentElement.scrollTop;
+    console.log({ x, y, 'e.clientX': e.clientX, 'e.clientY': e.clientY, 'scrollTop': document.documentElement.scrollTop, 'scrollLeft': document.documentElement.scrollLeft })
+    root.style.setProperty('--mouseX', x + "px");
+    root.style.setProperty('--mouseY', y + "px");
+    // if (spotLightSize) {
+    //   // shrinkSpotlight();
+    // }    
+  });
+</script>

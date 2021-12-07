@@ -29,7 +29,7 @@ query allIssues($owner: String!, $repo: String!) {
 const pullRequestsQuery = `
 query allPullRequests($owner: String!, $repo: String!) {
   repository(owner: $owner, name: $repo) {
-    pullRequests(first: 100, orderBy: {field: CREATED_AT, direction: ASC}, states: MERGED) {
+    pullRequests(first: 100, orderBy: {field: CREATED_AT, direction: DESC}, states: MERGED) {
       nodes {
         body
         bodyHTML

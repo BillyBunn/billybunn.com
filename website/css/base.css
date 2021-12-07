@@ -8,12 +8,12 @@
 
 html,
 body {
-  height: 100%;
+  /* height: 100%; */
 }
 
 body {
-  background-color: #1b1b1b;
-  color: #fdfdfd;
+  /* background-color: #1b1b1b; */
+  /* color: #fdfdfd; */
   display: flex;
   flex-flow: column nowrap;
   font-family: system-ui, sans-serif;
@@ -143,163 +143,4 @@ footer .layout {
 }
 footer .layout > * {
   display: block;
-}
-
-/* Fun gradient colors */
-
-/* Changing underline colors for links */
-main a,
-footer a {
-  animation: linkUnderlineAnimation 30s ease-out infinite;
-  text-decoration: underline;
-  text-decoration-color: #ff00c1;
-  -moz-animation: linkUnderlineAnimation 30s ease-out infinite;
-  -webkit-animation: linkUnderlineAnimation 30s ease-out infinite;
-}
-@-webkit-keyframes linkUnderlineAnimation {
-  0% {
-    text-decoration-color: #ff00c1;
-  }
-  12.5% {
-    text-decoration-color: #9600ff;
-  }
-  25% {
-    text-decoration-color: #4900ff;
-  }
-  37.5% {
-    text-decoration-color: #00b8ff;
-  }
-  50% {
-    text-decoration-color: #00fff9;
-  }
-  62.5% {
-    text-decoration-color: #00b8ff;
-  }
-  75% {
-    text-decoration-color: #4900ff;
-  }
-  87.5% {
-    text-decoration-color: #9600ff;
-  }
-  100% {
-    text-decoration-color: #ff00c1;
-  }
-}
-@-moz-keyframes linkUnderlineAnimation {
-  0% {
-    text-decoration-color: #ff00c1;
-  }
-  12.5% {
-    text-decoration-color: #9600ff;
-  }
-  25% {
-    text-decoration-color: #4900ff;
-  }
-  37.5% {
-    text-decoration-color: #00b8ff;
-  }
-  50% {
-    text-decoration-color: #00fff9;
-  }
-  62.5% {
-    text-decoration-color: #00b8ff;
-  }
-  75% {
-    text-decoration-color: #4900ff;
-  }
-  87.5% {
-    text-decoration-color: #9600ff;
-  }
-  100% {
-    text-decoration-color: #ff00c1;
-  }
-}
-@keyframes linkUnderlineAnimation {
-  0% {
-    text-decoration-color: #ff00c1;
-  }
-  12.5% {
-    text-decoration-color: #9600ff;
-  }
-  25% {
-    text-decoration-color: #4900ff;
-  }
-  37.5% {
-    text-decoration-color: #00b8ff;
-  }
-  50% {
-    text-decoration-color: #00fff9;
-  }
-  62.5% {
-    text-decoration-color: #00b8ff;
-  }
-  75% {
-    text-decoration-color: #4900ff;
-  }
-  87.5% {
-    text-decoration-color: #9600ff;
-  }
-  100% {
-    text-decoration-color: #ff00c1;
-  }
-}
-
-.gradient-text,
-h2 a,
-h3 a,
-h4 a,
-h5 a,
-h6 a {
-  animation: gradientBackgroundAnimation 60s ease-out infinite;
-  background: linear-gradient(
-    to right,
-    #ff00c1,
-    #9600ff,
-    #4900ff,
-    #00b8ff,
-    #00fff9,
-    #00b8ff,
-    #4900ff,
-    #9600ff,
-    #ff00c1
-  );
-  background-clip: text;
-  background-size: 900% 900%;
-  color: transparent;
-  text-decoration: none;
-  -moz-animation: gradientBackgroundAnimation 60s ease-out infinite;
-  -webkit-animation: gradientBackgroundAnimation 60s ease-out infinite;
-}
-@-webkit-keyframes gradientBackgroundAnimation {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-@-moz-keyframes gradientBackgroundAnimation {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-@keyframes gradientBackgroundAnimation {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
 }

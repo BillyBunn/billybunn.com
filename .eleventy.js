@@ -5,6 +5,7 @@ const { getPullRequests, getIssues } = require("./github.ts");
 module.exports = function (eleventyConfig) {
   eleventyConfig.addWatchTarget("./website/css/");
   eleventyConfig.ignores.add("./website/_data/**");
+  eleventyConfig.ignores.add("./website/_drafts/**");
 
   eleventyConfig.addCollection("posts", function (collectionApi) {
     return collectionApi.getFilteredByGlob("**/posts/*/*");
