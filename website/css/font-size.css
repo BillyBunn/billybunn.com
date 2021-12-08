@@ -163,10 +163,3 @@ h4 {
 h5 {
   font-size: var(--step-0);
 }
-
-code {
-  background: #545454;
-  border-radius: 0.1em;
-  color: #fff;
-  padding: 0.05em 0.15em;
-}

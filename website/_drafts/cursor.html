@@ -1,7 +1,10 @@
 <style>
   :root {
-    --mouseX: -12vmin;
-    --mouseY: -12vmin;
+    --mouseX: 0px;
+    --mouseY: 0px;
+    --mouseX2: 0px;
+    --mouseY2: 0px;
+
     --bg-color: #1b1b1b;
     --bg-size: 900vw;
     --bg-size-text: calc(var(--bg-size) - ((100vh - 1440px) / 2));
@@ -10,19 +13,40 @@
   }
 
   html {
+    height: 100%;
+  }
+  body {
+    min-height: 100vh;
+  }
+
+  body *::selection {
+    color: var(--bg-color);
+    background-color: #ff00c1;
+  }
+
+  html {
     background: var(--bg-color);
   }
 
   body {
-    background-image: radial-gradient(circle at var(--mouseX) var(--mouseY),
+    background-image: radial-gradient(circle 
+    at var(--mouseX) var(--mouseY)
+    ,
         transparent 1px,
         var(--bg-color) var(--light-size));
-    color: var(--text-color);
+    /* background-position: left var(--mouseX) top var(--mouseY); */
+    /* background-position: left var(--mouseX2) top var(--mouseY2); */
+    color: var(--text-color);   
     position: relative;
+    transition: background-position 500ms linear;
+    /* -webkit-perspective: 1000;
+   -moz-perspective: 1000;
+   -ms-perspective: 1000;
+   perspective: 1000; */
   }
 
   body::before {
-    animation: gradientBackgroundAnimation 60s ease-out infinite;
+    /* animation: gradientBackgroundAnimation 60s ease-out infinite; */
     background: linear-gradient(to right,
         #ff00c1,
         #9600ff,
@@ -41,8 +65,8 @@
     right: 0;
     top: 0;
     z-index: -1;
-    -webkit-animation: gradientBackgroundAnimation 60s ease-out infinite;
-    -moz-animation: gradientBackgroundAnimation 60s ease-out infinite;
+    /* -webkit-animation: gradientBackgroundAnimation 60s ease-out infinite; */
+    /* -moz-animation: gradientBackgroundAnimation 60s ease-out infinite; */
   }
 
   /* Text with changing gradient color */
@@ -76,19 +100,34 @@
     -webkit-background-clip: text;
     -webkit-box-decoration-break: clone;
   }
+  .g-emoji {
+    background-clip: unset;
+    -webkit-background-clip: unset;
+    color: var(--text-color);
+  }
+  * .g-emoji::before {
+    content: ' ';
+  }
+  body *::selection {
+    -webkit-background-clip: unset;
+    background-clip: unset;
+    color: var(--bg-color);
+    box-decoration-break: unset;
+    -webkit-box-decoration-break: unset;
+  }
 
   a.gradient-text,
   .gradient-text a,
   main a {
-    animation: gradientBackgroundAnimation 60s ease-out infinite, linkUnderlineAnimation 22s ease-out infinite;
+    /* animation: gradientBackgroundAnimation 60s ease-out infinite, linkUnderlineAnimation 22s ease-out infinite; */
     filter: drop-shadow(0.1em 0.1em 1em var(--bg-color));
     text-decoration-color: #ff00c1;
     text-decoration-skip: edges;
     text-decoration-style: solid;
     text-decoration-thickness: 0.1em;
     ;
-    -moz-animation: gradientBackgroundAnimation 60s ease-out infinite, linkUnderlineAnimation 22s ease-out infinite;
-    -webkit-animation: gradientBackgroundAnimation 60s ease-out infinite, linkUnderlineAnimation 22s ease-out infinite;
+    /* -moz-animation: gradientBackgroundAnimation 60s ease-out infinite, linkUnderlineAnimation 22s ease-out infinite; */
+    /* -webkit-animation: gradientBackgroundAnimation 60s ease-out infinite, linkUnderlineAnimation 22s ease-out infinite; */
   }
 
   @-webkit-keyframes linkUnderlineAnimation {
@@ -250,17 +289,58 @@
 </style>
 
 <script>
+  let intervalId;
+  // spotlightSize;
+  // let prevX, prevY;
   function setCssVars(e) {
-    // let x = e.pageX,
-    //   y = e.pageY;
-    let x = e.clientX + document.documentElement.scrollTop,
-      y = e.clientY + document.documentElement.scrollLeft;
-    let offset = document.documentElement.offset();
-    console.log({ offset })
-    document.documentElement.style.setProperty('--mouseX', x + 'px')
-    document.documentElement.style.setProperty('--mouseY', y + 'px')
+    // console.log('🐁 setCssVars', { intervalId, spotlightSize });
+    let scrolled = document.documentElement.scrollTop;
+    let clientX = e.clientX || e.touches[0].clientX,
+        clientY = e.clientY || e.touches[0].clientY;
+    let x = clientX + document.documentElement.scrollLeft,
+      y = clientY + scrolled;
+    let x2 = clientX + document.documentElement.scrollLeft,
+      y2 = clientY + scrolled;
+    // const body = window.getElemen
+    // let currentX = document.documentElement.style.getPropertyValue("--mouseX"),
+    //   currentY = document.documentElement.style.getPropertyValue("--mouseY")
+    // computedStyle = window.getComputedStyle(document.body).backgroundPosition;
+
+    // console.log({ currentX, currentY, prevX, prevY, x, y, computedStyle })
+
+    // if ((!Math.abs(prevY) && !Math.abs(prevX)) || (Math.abs(x - prevX) > 25 || Math.abs(y - prevY) > 25)) {
+
+
+    // if (intervalId) {
+    //   console.log('clearing old intervalId', { intervalId })
+    //   clearInterval(intervalId)
+    // }
+    // spotlightSize = 50;
+    // let x = e.clientX + document.documentElement.scrollLeft,
+    // y = e.clientY + document.documentElement.scrollTop;
+    // prevX = x;
+    // prevY = y;
+    document.documentElement.style.setProperty('--mouseX', `${x}px`);
+    document.documentElement.style.setProperty('--mouseY', `${y}px`);
+    document.documentElement.style.setProperty('--mouseX2', `calc(${x}px - 50vw)`);
+    document.documentElement.style.setProperty('--mouseY2', `calc(${y}px - 100vh - var(--light-size))`);
+    // document.documentElement.style.setProperty('--mouseX', `calc(${x}px - 50vw)`);
+    // document.documentElement.style.setProperty('--mouseY', `calc(${y}px - 50vh - var(--light-size) * 2)`);
+
+    // intervalId = setInterval(function () {
+    //   console.log('⏲️ setInterval fn', { intervalId, spotlightSize });
+    //   spotlightSize = spotlightSize - 10;
+    //   document.documentElement.style.setProperty('--light-size', spotlightSize + "vmin");
+    //   if (spotlightSize <= 0 || !spotlightSize) {
+    //     console.log('🛑 clearInterval', { intervalId, spotlightSize });
+    //     // document.documentElement.style.setProperty('--light-size', 0 + "vmin");
+    //     clearInterval(intervalId);
+    //   };
+    // }, 500)
   }
-  let root = document.documentElement;
+  // }
+  document.documentElement.addEventListener("click", setCssVars);
+  document.documentElement.addEventListener("touchstart", setCssVars);
 
   // let spotLightSize = 12,
   //   maxSize = 12;
@@ -269,14 +349,4 @@
   //   spotLightSize -= 0.1;
   //   root.style.setProperty('--light-size', spotLightSize + "vmin");
   // }
-  root.addEventListener("mousemove", e => {
-    let x = e.clientX + document.documentElement.scrollLeft;
-    let y = e.clientY + document.documentElement.scrollTop;
-    console.log({ x, y, 'e.clientX': e.clientX, 'e.clientY': e.clientY, 'scrollTop': document.documentElement.scrollTop, 'scrollLeft': document.documentElement.scrollLeft })
-    root.style.setProperty('--mouseX', x + "px");
-    root.style.setProperty('--mouseY', y + "px");
-    // if (spotLightSize) {
-    //   // shrinkSpotlight();
-    // }    
-  });
 </script>

@@ -17,6 +17,7 @@ query allIssues($owner: String!, $repo: String!) {
         closedAt
         createdAt
         title
+        titleHTML
         url
       }
     }
@@ -37,6 +38,7 @@ query allPullRequests($owner: String!, $repo: String!) {
         createdAt
         mergedAt
         title
+        titleHTML
         url
       }
     }

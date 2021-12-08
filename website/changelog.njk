@@ -34,7 +34,7 @@ title: Changelog
   }
   .done, .done a {
     text-decoration: line-through;
-    text-decoration-color: #fbfbfb;
+    {# text-decoration-color: var(--text-color); #}
   }
   </style>
 <section>
@@ -42,7 +42,7 @@ title: Changelog
   {% for pr in githubPrs %}
   {% set date = pr.createdAt.substring(0, 10) %}
   <article>
-    <h3><a href="{{ pr.url }}"><time datetime="{{ date }}">{{ date }}</time> · {{ pr.title }}</a></h3>
+    <h3><a href="{{ pr.url }}"><time datetime="{{ date }}">{{ date }}</time> · {{ pr.titleHTML | safe }}</a></h3>
     {# {% if pr.body %}<p>{{ pr.body }}</p>{% endif %} #}
     {# using bodyHTML for now because it includes linked issue URLs. However, adds a bunch of GitHub-generated HTML attributes… #}
     {% if pr.bodyHTML %}{{ pr.bodyHTML | safe }}{% endif %}
@@ -54,7 +54,7 @@ title: Changelog
   {% for issue in githubIssues %}
   {% set date = issue.createdAt.substring(0, 10) %}
   <article {% if issue.closed %}class="done"{% endif %}>
-    <h3><a href="{{ issue.url }}"><time datetime="{{ date }}">{{ date }}</time> · {{ issue.title }}</a></h3>
+    <h3><a href="{{ issue.url }}"><time datetime="{{ date }}">{{ date }}</time> · {{ issue.titleHTML | safe }}</a></h3>
     {% if issue.bodyHTML %}{{ issue.bodyHTML | safe }}{% endif %}
   </article>
   {% endfor %}

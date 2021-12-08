@@ -6,6 +6,7 @@
     "closedAt": "2021-12-04T01:31:01Z",
     "createdAt": "2021-12-03T19:28:12Z",
     "title": "Needs a changelog",
+    "titleHTML": "Needs a changelog",
     "url": "https://github.com/BillyBunn/billybunn.com/issues/1"
   },
   {
@@ -15,6 +16,7 @@
     "closedAt": null,
     "createdAt": "2021-12-04T18:58:41Z",
     "title": "Site should deploy on merge to master branch 🚀",
+    "titleHTML": "Site should deploy on merge to master branch <g-emoji class=\"g-emoji\" alias=\"rocket\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/1f680.png\">🚀</g-emoji>",
     "url": "https://github.com/BillyBunn/billybunn.com/issues/5"
   },
   {
@@ -24,6 +26,7 @@
     "closedAt": null,
     "createdAt": "2021-12-04T19:08:14Z",
     "title": "Lighthouse CI/CD on pull requests 🔦🗼",
+    "titleHTML": "Lighthouse CI/CD on pull requests <g-emoji class=\"g-emoji\" alias=\"flashlight\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/1f526.png\">🔦</g-emoji><g-emoji class=\"g-emoji\" alias=\"tokyo_tower\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/1f5fc.png\">🗼</g-emoji>",
     "url": "https://github.com/BillyBunn/billybunn.com/issues/6"
   },
   {
@@ -33,6 +36,7 @@
     "closedAt": null,
     "createdAt": "2021-12-04T19:20:09Z",
     "title": "Add search 🔍",
+    "titleHTML": "Add search <g-emoji class=\"g-emoji\" alias=\"mag\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/1f50d.png\">🔍</g-emoji>",
     "url": "https://github.com/BillyBunn/billybunn.com/issues/7"
   },
   {
@@ -42,6 +46,7 @@
     "closedAt": null,
     "createdAt": "2021-12-04T23:48:13Z",
     "title": "Basic CSS post-processing 💅",
+    "titleHTML": "Basic CSS post-processing <g-emoji class=\"g-emoji\" alias=\"nail_care\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/1f485.png\">💅</g-emoji>",
     "url": "https://github.com/BillyBunn/billybunn.com/issues/8"
   }
 ]
