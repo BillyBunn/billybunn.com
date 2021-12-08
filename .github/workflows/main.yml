@@ -6,12 +6,16 @@ on:
   workflow_dispatch:
 jobs:
   build-eleventy-site:
+    # cheapest runner
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
+          # latest node version supported by aws-cdk
           node-version: '16.3.0'
+          # to cache installed dependencies for next job
+          cache: npm
       - name: Clean install dependencies
         run: npm ci
       - name: Clean eleventy build folder
@@ -19,6 +23,7 @@ jobs:
       - name: Build eleventy site
         run: npm run build      
   deploy-aws-cdk:
+    # site must be build before running deployment
     needs: build-eleventy-site
     runs-on: ubuntu-latest
     steps:
