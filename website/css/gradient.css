@@ -1,14 +1,30 @@
+/*
+
+color: #ff00c1;
+color: #9600ff;
+color: #4900ff;
+color: #00b8ff;
+color: #00fff9;
+color: #ff00c1;
+
+}
+*/
+
 @keyframes change {
   0% {
     color: #ff00c1;
   }
 
   20% {
+    /* does not meet contrast ratio requirements */
+    /* color: #b64dff; */
     color: #9600ff;
   }
 
   40% {
+    /* does not meet contrast ratio requirements */
     color: #4900ff;
+    /* color: #9165ff; */
   }
 
   60% {
@@ -25,6 +41,8 @@
 }
 
 :root {
+
+
   --bg-color: #1b1b1b;
   --bg-size: 900vw;
   --text-color: #fdfdfd;

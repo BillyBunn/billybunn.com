@@ -78,13 +78,13 @@ async function getIssues() {
 }
 
 async function populateGitHubData() {
-  console.log("Populating GitHub data…");
+  console.log("Populating GitHub data 🐙🐈");
 
   const pullRequests = await getPullRequests();
-  await writeFile(`${__dirname}/website/_data/githubPrs.json`, JSON.stringify(pullRequests, null, 2));
+  await writeFile(`${__dirname}/../website/_data/githubPrs.json`, JSON.stringify(pullRequests, null, 2));
 
   const issues = await getIssues();
-  await writeFile(`${__dirname}/website/_data/githubIssues.json`, JSON.stringify(issues, null, 2));
+  await writeFile(`${__dirname}/../website/_data/githubIssues.json`, JSON.stringify(issues, null, 2));
 }
 
 populateGitHubData();

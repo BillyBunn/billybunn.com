@@ -1,11 +1,38 @@
 const fs = require("fs");
 const htmlmin = require("html-minifier");
-const { getPullRequests, getIssues } = require("./github.ts");
+const postcss = require("postcss");
+const autoprefixer = require("autoprefixer");
+const { PurgeCSS } = require("purgecss");
+// const { getPullRequests, getIssues } = require("./github.ts");
+const crushCSS = require("./scripts/crushcss.js");
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addWatchTarget("./website/css/");
   eleventyConfig.ignores.add("./website/_data/**");
   eleventyConfig.ignores.add("./website/_drafts/**");
+  eleventyConfig.ignores.add("./website/scripts/**");
+
+  // runs purgeCSS against CSS inside HTML <style> tags
+  eleventyConfig.addTransform("crushcss", async function (content, outputPath) {
+    if (!outputPath.endsWith(".html")) return content;
+    const results = await crushCSS(content);
+    return results;
+  });
+  /*
+  eleventyConfig.addNunjucksAsyncFilter("postcss", async function (value, callback) {
+    console.log("postcss");
+    const processor = await postcss([
+      autoprefixer,
+      purgecss({
+        content: [{ raw: value }],
+      }),
+    ]);
+    const processed = await processor.process(value);
+    console.log({ processed });
+    console.log("-----------------------------------------------", processed.css);
+    return callback(null, processed.css);
+  });
+  */
 
   eleventyConfig.addCollection("posts", function (collectionApi) {
     return collectionApi.getFilteredByGlob("**/posts/*/*");
