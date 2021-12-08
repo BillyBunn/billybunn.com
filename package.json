@@ -2,11 +2,12 @@
   "name": "website",
   "version": "0.1.0",
   "scripts": {
-    "build": "tsc",
-    "watch": "tsc -w",
+    "build-tsc": "tsc",
+    "watch-tsc": "tsc -w",
     "cdk": "cdk",
-    "eleventy-serve": "node scripts/github.ts && npx @11ty/eleventy --serve --formats=md,html,njk,jpg,png",
-    "eleventy": "npx @11ty/eleventy --formats=md,html,njk,jpg,png"
+    "serve": "node scripts/github.ts && npx @11ty/eleventy --serve --formats=md,html,njk,jpg,png",
+    "build": "npx @11ty/eleventy --formats=md,html,njk,jpg,png",
+    "clean": "rm -rv website/_site/*"
   },
   "devDependencies": {
     "@types/node": "10.17.27",

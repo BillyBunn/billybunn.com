@@ -42,8 +42,8 @@
   {
     "body": "Already feeling the pain of missing vendor prefixes for more recent CSS. [PostCSS](https://postcss.org) seems like the default choice (with the autoprefixer plugin for starters), but could look into more lightweight options for now. ",
     "bodyHTML": "<p dir=\"auto\">Already feeling the pain of missing vendor prefixes for more recent CSS. <a href=\"https://postcss.org\" rel=\"nofollow\">PostCSS</a> seems like the default choice (with the autoprefixer plugin for starters), but could look into more lightweight options for now.</p>",
-    "closed": false,
-    "closedAt": null,
+    "closed": true,
+    "closedAt": "2021-12-08T08:06:46Z",
     "createdAt": "2021-12-04T23:48:13Z",
     "title": "Basic CSS post-processing 💅",
     "titleHTML": "Basic CSS post-processing <g-emoji class=\"g-emoji\" alias=\"nail_care\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/1f485.png\">💅</g-emoji>",
