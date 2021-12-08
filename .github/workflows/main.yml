@@ -4,7 +4,16 @@ on:
     branches:
       - master
   workflow_dispatch:
-jobs:
+# jobs:
+#   cache-npm-dependencies:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v2
+#       - uses: actions/setup-node@v2
+#           with:
+#             node-version: '16.3.0'
+#             cache: 'npm'
+
   build-eleventy-site:
     # cheapest runner
     runs-on: ubuntu-latest
@@ -15,7 +24,7 @@ jobs:
           # latest node version supported by aws-cdk
           node-version: '16.3.0'
           # to cache installed dependencies for next job
-          cache: npm
+          cache: 'npm'
       - name: Clean install dependencies
         run: npm ci
       - name: Clean eleventy build folder
