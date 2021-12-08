@@ -22,7 +22,7 @@ defaultTitle: "Billy Bunn"
   <title>{% if title %}{{ title }} · {{ defaultTitle }}{% else %}{{ defaultTitle }}{% endif %}</title>
   <style>
     {# {{ css | postcss | safe }}     #}
-    {{ test | safe }}
+    {{ test | postcss | safe }}
   </style>
 </head>
 <body>

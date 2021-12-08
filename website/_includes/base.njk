@@ -21,7 +21,7 @@ defaultTitle: "Billy Bunn"
   <meta name="description" content="billybunn.io 🚧 Under Construction 🚧" />
   <title>{% if title %}{{ title }} · {{ defaultTitle }}{% else %}{{ defaultTitle }}{% endif %}</title>
   <style>
-    {{ css | safe }}    
+    {{ css | postcss | safe }}    
     {# {{test | postcss | safe }} #}
   </style>
 </head>
