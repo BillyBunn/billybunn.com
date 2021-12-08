@@ -1,10 +1,27 @@
 const fs = require("fs");
 const htmlmin = require("html-minifier");
-const { getPullRequests, getIssues } = require("./github.ts");
+const postcss = require("postcss");
+const autoprefixer = require("autoprefixer");
+const crushCSS = require("./scripts/crushcss.js");
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addWatchTarget("./website/css/");
   eleventyConfig.ignores.add("./website/_data/**");
+  eleventyConfig.ignores.add("./website/_drafts/**");
+  eleventyConfig.ignores.add("./website/scripts/**");
+
+  // runs purgeCSS against CSS inside HTML <style> tags
+  eleventyConfig.addTransform("crushcss", async function (content, outputPath) {
+    if (!outputPath.endsWith(".html")) return content;
+    const results = await crushCSS(content);
+    return results;
+  });
+
+  eleventyConfig.addNunjucksAsyncFilter("postcss", async function (value, callback) {
+    const processor = await postcss([autoprefixer]);
+    const processed = await processor.process(value);
+    return callback(null, processed.css);
+  });
 
   eleventyConfig.addCollection("posts", function (collectionApi) {
     return collectionApi.getFilteredByGlob("**/posts/*/*");

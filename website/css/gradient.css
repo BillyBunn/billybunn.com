@@ -1,0 +1,98 @@
+/*
+
+color: #ff00c1;
+color: #9600ff;
+color: #4900ff;
+color: #00b8ff;
+color: #00fff9;
+color: #ff00c1;
+
+}
+*/
+
+@keyframes change {
+  0% {
+    color: #ff00c1;
+  }
+
+  20% {
+    /* does not meet contrast ratio requirements */
+    /* color: #b64dff; */
+    color: #9600ff;
+  }
+
+  40% {
+    /* does not meet contrast ratio requirements */
+    color: #4900ff;
+    /* color: #9165ff; */
+  }
+
+  60% {
+    color: #00b8ff;
+  }
+
+  80% {
+    color: #00fff9;
+  }
+
+  100% {
+    color: #ff00c1;
+  }
+}
+
+:root {
+
+
+  --bg-color: #1b1b1b;
+  --bg-size: 900vw;
+  --text-color: #fdfdfd;
+  --accent-color: #ff00c1;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+body *::selection {
+  color: var(--bg-color);
+  background-color: var(--accent-color);
+}
+
+.gradient-text,
+a:not(code, a code, a + code, a > code, code a, code > a) {
+  animation: change 30s linear infinite;
+  color: var(--accent-color);
+  text-decoration-thickness: from-font;
+  text-underline-offset: 0.18em;
+  /* transition: text-underline-offset 800ms ease-in 300ms; */
+  transition: text-decoration-color 800ms ease-in 150ms;
+}
+
+.gradient-text code,
+a > code {
+  transition: none;
+}
+
+.gradient-text:hover,
+a:hover, .done a:hover {
+  /* text-underline-offset: 0.04em; */
+  text-decoration-color: var(--text-color);
+  /* transition: text-underline-offset 300ms ease-out; */
+  transition: text-decoration-color 300ms ease-out;
+}
+
+a > code,
+a code {
+  text-decoration-color: var(--accent-color);
+  text-decoration-color: lawngreen !important;
+}
+
+code {
+  text-decoration-color: lawngreen !important;
+  background: #212121;
+  border-radius: 0.1em;
+  color: var(--accent-color);
+  padding: 0.05em 0.15em;
+  filter: drop-shadow(0px 0px 0.2em rgba(255, 0, 193, 0.25));
+}

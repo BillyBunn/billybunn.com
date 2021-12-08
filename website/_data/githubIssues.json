@@ -6,6 +6,47 @@
     "closedAt": "2021-12-04T01:31:01Z",
     "createdAt": "2021-12-03T19:28:12Z",
     "title": "Needs a changelog",
+    "titleHTML": "Needs a changelog",
     "url": "https://github.com/BillyBunn/billybunn.com/issues/1"
+  },
+  {
+    "body": "Currently the website is deployed on a local machine using a CLI command for AWS CDK (i.e., `cdk deploy --all`). It would be better if this was done automatically when a feature branch is merged to the `master` branch. \n\nBecause the `/changelog` page is populated by _merged_ PRs, it would make sense to rebuild the site after a merge (and before the deploy) too. \n\nSo a GitHub action that: \n- Is triggered by a push/merge to `master`\n- Builds the static pages, `npx @11ty/eleventy` \n- Deploys the CDK stack, `cdk deploy --all`\n   - Will need to confirm changes",
+    "bodyHTML": "<p dir=\"auto\">Currently the website is deployed on a local machine using a CLI command for AWS CDK (i.e., <code>cdk deploy --all</code>). It would be better if this was done automatically when a feature branch is merged to the <code>master</code> branch.</p>\n<p dir=\"auto\">Because the <code>/changelog</code> page is populated by <em>merged</em> PRs, it would make sense to rebuild the site after a merge (and before the deploy) too.</p>\n<p dir=\"auto\">So a GitHub action that:</p>\n<ul dir=\"auto\">\n<li>Is triggered by a push/merge to <code>master</code></li>\n<li>Builds the static pages, <code>npx @11ty/eleventy</code></li>\n<li>Deploys the CDK stack, <code>cdk deploy --all</code>\n<ul dir=\"auto\">\n<li>Will need to confirm changes</li>\n</ul>\n</li>\n</ul>",
+    "closed": false,
+    "closedAt": null,
+    "createdAt": "2021-12-04T18:58:41Z",
+    "title": "Site should deploy on merge to master branch 🚀",
+    "titleHTML": "Site should deploy on merge to master branch <g-emoji class=\"g-emoji\" alias=\"rocket\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/1f680.png\">🚀</g-emoji>",
+    "url": "https://github.com/BillyBunn/billybunn.com/issues/5"
+  },
+  {
+    "body": "I want to see the site's lighthouse score in a GitHub PR before merging changes. There are good examples and tools for this.\n\nResources: \n- https://www.zachleat.com/web/11ty-lighthouse/\n- https://twitter.com/addyosmani/status/1200147500436377600?s=21\n- https://github.com/GoogleChrome/lighthouse-ci\n- https://github.com/apps/lighthouse-ci",
+    "bodyHTML": "<p dir=\"auto\">I want to see the site's lighthouse score in a GitHub PR before merging changes. There are good examples and tools for this.</p>\n<p dir=\"auto\">Resources:</p>\n<ul dir=\"auto\">\n<li><a href=\"https://www.zachleat.com/web/11ty-lighthouse/\" rel=\"nofollow\">https://www.zachleat.com/web/11ty-lighthouse/</a></li>\n<li><a href=\"https://twitter.com/addyosmani/status/1200147500436377600?s=21\" rel=\"nofollow\">https://twitter.com/addyosmani/status/1200147500436377600?s=21</a></li>\n<li><a href=\"https://github.com/GoogleChrome/lighthouse-ci\">https://github.com/GoogleChrome/lighthouse-ci</a></li>\n<li><a href=\"https://github.com/apps/lighthouse-ci\">https://github.com/apps/lighthouse-ci</a></li>\n</ul>",
+    "closed": false,
+    "closedAt": null,
+    "createdAt": "2021-12-04T19:08:14Z",
+    "title": "Lighthouse CI/CD on pull requests 🔦🗼",
+    "titleHTML": "Lighthouse CI/CD on pull requests <g-emoji class=\"g-emoji\" alias=\"flashlight\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/1f526.png\">🔦</g-emoji><g-emoji class=\"g-emoji\" alias=\"tokyo_tower\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/1f5fc.png\">🗼</g-emoji>",
+    "url": "https://github.com/BillyBunn/billybunn.com/issues/6"
+  },
+  {
+    "body": "Rather than use an \"friendly\" service, let's see how [AWS OpenSearch](https://aws.amazon.com/opensearch-service/?nc=bc&pg=wik) could integrate into the current stack—a good excuse to learn something new!",
+    "bodyHTML": "<p dir=\"auto\">Rather than use an \"friendly\" service, let's see how <a href=\"https://aws.amazon.com/opensearch-service/?nc=bc&amp;pg=wik\" rel=\"nofollow\">AWS OpenSearch</a> could integrate into the current stack—a good excuse to learn something new!</p>",
+    "closed": false,
+    "closedAt": null,
+    "createdAt": "2021-12-04T19:20:09Z",
+    "title": "Add search 🔍",
+    "titleHTML": "Add search <g-emoji class=\"g-emoji\" alias=\"mag\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/1f50d.png\">🔍</g-emoji>",
+    "url": "https://github.com/BillyBunn/billybunn.com/issues/7"
+  },
+  {
+    "body": "Already feeling the pain of missing vendor prefixes for more recent CSS. [PostCSS](https://postcss.org) seems like the default choice (with the autoprefixer plugin for starters), but could look into more lightweight options for now. ",
+    "bodyHTML": "<p dir=\"auto\">Already feeling the pain of missing vendor prefixes for more recent CSS. <a href=\"https://postcss.org\" rel=\"nofollow\">PostCSS</a> seems like the default choice (with the autoprefixer plugin for starters), but could look into more lightweight options for now.</p>",
+    "closed": false,
+    "closedAt": null,
+    "createdAt": "2021-12-04T23:48:13Z",
+    "title": "Basic CSS post-processing 💅",
+    "titleHTML": "Basic CSS post-processing <g-emoji class=\"g-emoji\" alias=\"nail_care\" fallback-src=\"https://github.githubassets.com/images/icons/emoji/unicode/1f485.png\">💅</g-emoji>",
+    "url": "https://github.com/BillyBunn/billybunn.com/issues/8"
   }
 ]

@@ -17,6 +17,7 @@ query allIssues($owner: String!, $repo: String!) {
         closedAt
         createdAt
         title
+        titleHTML
         url
       }
     }
@@ -29,7 +30,7 @@ query allIssues($owner: String!, $repo: String!) {
 const pullRequestsQuery = `
 query allPullRequests($owner: String!, $repo: String!) {
   repository(owner: $owner, name: $repo) {
-    pullRequests(first: 100, orderBy: {field: CREATED_AT, direction: ASC}, states: MERGED) {
+    pullRequests(first: 100, orderBy: {field: CREATED_AT, direction: DESC}, states: MERGED) {
       nodes {
         body
         bodyHTML
@@ -37,6 +38,7 @@ query allPullRequests($owner: String!, $repo: String!) {
         createdAt
         mergedAt
         title
+        titleHTML
         url
       }
     }
@@ -76,13 +78,13 @@ async function getIssues() {
 }
 
 async function populateGitHubData() {
-  console.log("Populating GitHub data…");
+  console.log("Populating GitHub data 🐙🐈");
 
   const pullRequests = await getPullRequests();
-  await writeFile(`${__dirname}/website/_data/githubPrs.json`, JSON.stringify(pullRequests, null, 2));
+  await writeFile(`${__dirname}/../website/_data/githubPrs.json`, JSON.stringify(pullRequests, null, 2));
 
   const issues = await getIssues();
-  await writeFile(`${__dirname}/website/_data/githubIssues.json`, JSON.stringify(issues, null, 2));
+  await writeFile(`${__dirname}/../website/_data/githubIssues.json`, JSON.stringify(issues, null, 2));
 }
 
 populateGitHubData();

@@ -99,6 +99,7 @@ Added lambda@edge function for "default directory indexes" https://aws.amazon.co
 - posts about Usenet
 - integration with medium?
 - 'last updated/deployed' badge in footer
+- Curriculum vitae in addition to resume?
 
 
 
