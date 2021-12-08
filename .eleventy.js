@@ -2,8 +2,6 @@ const fs = require("fs");
 const htmlmin = require("html-minifier");
 const postcss = require("postcss");
 const autoprefixer = require("autoprefixer");
-const { PurgeCSS } = require("purgecss");
-// const { getPullRequests, getIssues } = require("./github.ts");
 const crushCSS = require("./scripts/crushcss.js");
 
 module.exports = function (eleventyConfig) {
