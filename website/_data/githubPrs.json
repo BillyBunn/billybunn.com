@@ -1,5 +1,15 @@
 [
   {
+    "body": "Introduced PostCSS, autoprefixer PurgeCSS, and some better styling. \n\nNow all vendor prefixes are added in post processing and unused styles are removed (even from inline styles in `<style>` tags). \n\nFixes #8.",
+    "bodyHTML": "<p dir=\"auto\">Introduced PostCSS, autoprefixer PurgeCSS, and some better styling.</p>\n<p dir=\"auto\">Now all vendor prefixes are added in post processing and unused styles are removed (even from inline styles in <code>&lt;style&gt;</code> tags).</p>\n<p dir=\"auto\"><span class=\"issue-keyword tooltipped tooltipped-se\" aria-label=\"This pull request closes issue #8.\">Fixes</span> <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"1071331675\" data-permission-text=\"Title is private\" data-url=\"https://github.com/BillyBunn/billybunn.com/issues/8\" data-hovercard-type=\"issue\" data-hovercard-url=\"/BillyBunn/billybunn.com/issues/8/hovercard\" href=\"https://github.com/BillyBunn/billybunn.com/issues/8\">#8</a>.</p>",
+    "closedAt": "2021-12-08T08:06:47Z",
+    "createdAt": "2021-12-08T08:03:22Z",
+    "mergedAt": "2021-12-08T08:06:46Z",
+    "title": "Styling fun and CSS processing",
+    "titleHTML": "Styling fun and CSS processing",
+    "url": "https://github.com/BillyBunn/billybunn.com/pull/9"
+  },
+  {
     "body": "Added some trendy vaporwave gradient CSS. I have a feeling this will age very poorly. Like wood paneling and shag carpet, but on the web.",
     "bodyHTML": "<p dir=\"auto\">Added some trendy vaporwave gradient CSS. I have a feeling this will age very poorly. Like wood paneling and shag carpet, but on the web.</p>",
     "closedAt": "2021-12-04T08:09:36Z",
