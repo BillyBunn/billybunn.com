@@ -84,4 +84,4 @@ jobs:
       - name: Synth CDK
         run: cdk synth
       - name: Deploy CDK
-      - run: cdk --role-arn ${{ secrets.AWS_CDK_DEPLOY_ROLE_ARN }} deploy --all --require-approval never
+        run: cdk --role-arn ${{ secrets.AWS_CDK_DEPLOY_ROLE_ARN }} deploy --all --require-approval never
