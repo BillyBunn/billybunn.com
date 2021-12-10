@@ -1,10 +1,9 @@
-name: build-and-deploy
+name: deploy-aws-cdk
 on:
   workflow_dispatch:
 jobs:
   deploy-aws-cdk:
     name: Deploy AWS CDK stack
-    needs: [cache_node_modules, build_eleventy_site]
     runs-on: ubuntu-latest
     environment: deployment
     env:
