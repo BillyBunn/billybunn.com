@@ -54,21 +54,34 @@ jobs:
         run: npm run clean
       - name: Build eleventy site
         run: npm run build
-  # deploy-aws-cdk:
-  #   # site must be build before running deployment
-  #   needs: [cache_node_modules, build_eleventy_site]
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@v2
-  #     - uses: actions/setup-node@v2
-  #       with:
-  #         node-version: "16.3.0"
-  #     - uses: actions/cache@v2
-  #       with:
-  #         path: node_modules
-  #         key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-  #         restore-keys: |
-  #           ${{ runner.os }}-build-
-  #     - name: Clean install dependencies
-  #       run: npm ci
-  #     - run: cdk deploy --all
+  deploy-aws-cdk:
+    name: Deploy AWS CDK stack
+    needs: [cache_node_modules, build_eleventy_site]
+    runs-on: ubuntu-latest
+    env:
+      AWS_REGION: ${{ secrets.AWS_REGION }}
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: "16.3.0"
+      - id: cache_node_modules
+            uses: actions/cache@v2
+            env:
+              cache-name: cache-node-modules
+            with:
+              path: node_modules
+              key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+              restore-keys: |
+                ${{ runner.os }}-build-${{ env.cache-name }}-
+                ${{ runner.os }}-build-
+                ${{ runner.os }}-
+      - name: Clean install dependencies
+        if: steps.cache_node_modules.outputs.cache-hit != 'true'
+        run: npm ci
+      - name: Synth CDK
+        run: cdk synth
+      - name: Deploy CDK
+      - run: cdk --role-arn ${{ secrets.AWS_CDK_DEPLOY_ROLE_ARN }} deploy --all --require-approval never

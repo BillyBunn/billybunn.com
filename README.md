@@ -1,5 +1,5 @@
 # Billy Bunn's personal website reboot
-
+![Build status](https://github.com/<org>/<repo>/workflows/build-and-deploy/badge.svg "GitHub Actions Build Status")
 ### 🚧 Currently under construction 🚧
 
 ## Goals

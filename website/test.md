@@ -1,5 +1,9 @@
 ---
-layout: test.njk
-title: testing 1 2 3
+layout: page.njk
+title: Testing 1, 2, 3…
 ---
 This is a test
+
+This is another test
+
+Yet another test…

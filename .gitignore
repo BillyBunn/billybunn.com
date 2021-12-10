@@ -3,6 +3,7 @@ node_modules
 .DS_Store
 .env
 cdk.context.json
+dont-track-me
 
 # CDK asset staging directory
 .cdk.staging
