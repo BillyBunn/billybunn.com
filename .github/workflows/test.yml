@@ -13,8 +13,5 @@ jobs:
         with:
           node-version: "16.3.0"
       - name: test
-        if:  secrets.TEST_SECRET == 'This is a secret!'
-        run: echo "secrets.TEST_SECRET == 'This is a secret!'"
-      - name: test
         if:  env.MY_SECRET == 'This is a secret!'
         run: echo "env.MY_SECRET == 'This is a secret!'"
