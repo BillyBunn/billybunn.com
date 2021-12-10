@@ -86,7 +86,7 @@ jobs:
       - name: Create cdk.context.json with env variables
         run: | 
           touch cdk.context.json
-          echo { "DOMAIN_NAME": "${{ env.DOMAIN_NAME }}", "REGION": "${{ env.REGION }}" } >> cdk.context.json
+          echo '{ "DOMAIN_NAME": "${{ env.DOMAIN_NAME }}", "REGION": "${{ env.REGION }}" }' >> cdk.context.json
       - name: Synth CDK
         run: npm run cdk -- synth
       - name: Deploy CDK
