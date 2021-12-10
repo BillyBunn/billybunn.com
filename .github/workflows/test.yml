@@ -1,0 +1,21 @@
+name: build-and-deploy
+on:
+  workflow_dispatch:
+env:
+  DOMAIN_NAME: ${{ secrets.DOMAIN_NAME }}
+  REGION: ${{ secrets.REGION }}
+jobs:
+  test_job:
+    name: Testing some things
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: "16.3.0"
+      - name: List secrets
+        run: echo "${{ secrets.TEST_SECRET }}"
+      - name: Add mask to environment secrets
+        run: echo "::add-mask::${{ secrets.TEST_SECRET }}" 
+      - name: Try listing secret again
+        run: echo "${{ secrets.TEST_SECRET }}"
