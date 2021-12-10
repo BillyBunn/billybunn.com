@@ -12,6 +12,13 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: "16.3.0"
-      - name: test
-        if:  env.MY_SECRET == 'This is a secret!'
-        run: echo "env.MY_SECRET == 'This is a secret!'"
+      - name: test secret value
+        if:  env.MY_SECRET == 'test123'
+        run: echo "env.MY_SECRET == 'test123'"
+      - name: put secret in file
+        run: |
+          touch temp.txt
+          echo MY_SECRET_1="https://xxx.execute-api.us-west-2.amazonaws.com" >> temp.txt
+          echo MYSECRET2=${{ secrets.TEST_SECRET }} >> temp.txt
+          echo MYSECRET3=${{ env.MY_SECRET }} >> temp.txt
+          cat temp.txt
