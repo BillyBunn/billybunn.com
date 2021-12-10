@@ -1,12 +1,9 @@
 name: build-and-deploy
 on:
-  # push:
-  #   branches:
-  #     - master
+  push:
+    branches:
+      - master
   workflow_dispatch:
-env:
-  DOMAIN_NAME: ${{ secrets.DOMAIN_NAME }}
-  REGION: ${{ secrets.REGION }}
 jobs:
   cache_node_modules:
     name: Cache node_modules
@@ -62,9 +59,11 @@ jobs:
     needs: [cache_node_modules, build_eleventy_site]
     runs-on: ubuntu-latest
     env:
-      AWS_REGION: ${{ secrets.AWS_REGION }}
+      REGION: ${{ secrets.REGION }}
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      AWS_CDK_DEPLOY_ROLE_ARN: ${{ secrets.AWS_CDK_DEPLOY_ROLE_ARN }}
+      DOMAIN_NAME: ${{ secrets.DOMAIN_NAME }}
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
@@ -84,7 +83,11 @@ jobs:
       - name: Clean install dependencies
         if: steps.cache_node_modules.outputs.cache-hit != 'true'
         run: npm ci
+      - name: Create cdk.context.json with env variables
+        run: | 
+          touch cdk.context.json
+          echo { "DOMAIN_NAME": "${{ env.DOMAIN_NAME }}", "REGION": "${{ env.REGION }}" } >> cdk.context.json
       - name: Synth CDK
         run: npm run cdk -- synth
       - name: Deploy CDK
-        run: npm run cdk -- --role-arn ${{ secrets.AWS_CDK_DEPLOY_ROLE_ARN }} deploy --all --require-approval never
+        run: npm run cdk -- --role-arn ${{ env.AWS_CDK_DEPLOY_ROLE_ARN }} deploy --all --require-approval never

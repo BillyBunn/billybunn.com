@@ -15,6 +15,8 @@ jobs:
       - name: test secret value
         if:  env.MY_SECRET == 'test123'
         run: echo "env.MY_SECRET == 'test123'"
+      - name: test secret value again
+        run: echo "env.MY_SECRET == 'test123'"
       - name: put secret in file
         run: |
           touch temp.txt
@@ -22,3 +24,7 @@ jobs:
           echo MYSECRET2=${{ secrets.TEST_SECRET }} >> temp.txt
           echo MYSECRET3=${{ env.MY_SECRET }} >> temp.txt
           cat temp.txt
+          touch cdk.context.json
+          echo { "DOMAIN_NAME": "${{ env.MY_SECRET }}", "REGION": "${{ env.MY_SECRET }}" }
+
+
