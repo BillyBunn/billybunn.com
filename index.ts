@@ -18,7 +18,7 @@ class WebsiteStack extends cdk.Stack {
      * Variables set in untracked file cdk.context.json.
      * https://docs.aws.amazon.com/cdk/latest/guide/get_context_var.html
      */
-    const DOMAIN_NAME = this.node.tryGetContext("DOMAIN_NAME") || process.env.DOMAIN_NAME;
+    const DOMAIN_NAME = process.env.DOMAIN_NAME || this.node.tryGetContext("DOMAIN_NAME");
     console.log('------- test of DOMAIN_NAME', DOMAIN_NAME);
 
     /**
@@ -177,6 +177,6 @@ const app = new cdk.App();
 new WebsiteStack(app, "WebsiteStack", {
   env: {
     // Stacks which use EdgeFunctions must have an explicitly set region
-    region: app.node.tryGetContext("REGION") || process.env.REGION || "us-west-2",
+    region:  process.env.REGION || app.node.tryGetContext("REGION") || "us-west-2",
   },
 });
