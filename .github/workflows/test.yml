@@ -2,8 +2,7 @@ name: test-workflow
 on:
   workflow_dispatch:
 env:
-  DOMAIN_NAME: ${{ secrets.DOMAIN_NAME }}
-  REGION: ${{ secrets.REGION }}
+  MY_SECRET: ${{ secrets.TEST_SECRET }}
 jobs:
   test_job:
     name: Testing some things
@@ -14,8 +13,14 @@ jobs:
         with:
           node-version: "16.3.0"
       - name: List secrets
-        run: echo "${{ secrets.TEST_SECRET }}"
+        run: |
+          echo "TEST_SECRET:\ ${{ secrets.TEST_SECRET }}"
+          echo "MY_SECRET:\ ${{ secrets.MY_SECRET }}"
       - name: Add mask to environment secrets
-        run: echo "::add-mask::${{ secrets.TEST_SECRET }}" 
+        run: |
+          echo "::add-mask::${{ secrets.TEST_SECRET }}" 
+          echo "::add-mask::${{ secrets.MY_SECRET }}" 
       - name: Try listing secret again
-        run: echo "${{ secrets.TEST_SECRET }}"
+        run: |
+          echo "TEST_SECRET:\ ${{ secrets.TEST_SECRET }}"
+          echo "MY_SECRET:\ ${{ secrets.MY_SECRET }}"

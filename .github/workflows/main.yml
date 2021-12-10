@@ -1,8 +1,8 @@
 name: build-and-deploy
 on:
-  push:
-    branches:
-      - master
+  # push:
+  #   branches:
+  #     - master
   workflow_dispatch:
 env:
   DOMAIN_NAME: ${{ secrets.DOMAIN_NAME }}
