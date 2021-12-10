@@ -1,5 +1,5 @@
+require("dotenv").config();
 const path = require("path");
-
 import * as cdk from "@aws-cdk/core";
 import * as s3 from "@aws-cdk/aws-s3";
 import * as s3Deployment from "@aws-cdk/aws-s3-deployment";
