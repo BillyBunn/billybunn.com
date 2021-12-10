@@ -1,30 +1,42 @@
-name: test-workflow
+name: build-and-deploy
 on:
   workflow_dispatch:
-env:
-  MY_SECRET: ${{ secrets.TEST_SECRET }}
 jobs:
-  test_job:
-    name: Testing some things
+  deploy-aws-cdk:
+    name: Deploy AWS CDK stack
+    needs: [cache_node_modules, build_eleventy_site]
     runs-on: ubuntu-latest
+    environment: deployment
+    env:
+      REGION: ${{ secrets.REGION }}
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      AWS_CDK_DEPLOY_ROLE_ARN: ${{ secrets.AWS_CDK_DEPLOY_ROLE_ARN }}
+      DOMAIN_NAME: ${{ secrets.DOMAIN_NAME }}
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
           node-version: "16.3.0"
-      - name: test secret value
-        if:  env.MY_SECRET == 'test123'
-        run: echo "env.MY_SECRET == 'test123'"
-      - name: test secret value again
-        run: echo "env.MY_SECRET == 'test123'"
-      - name: put secret in file
-        run: |
-          touch temp.txt
-          echo MY_SECRET_1="https://xxx.execute-api.us-west-2.amazonaws.com" >> temp.txt
-          echo MYSECRET2=${{ secrets.TEST_SECRET }} >> temp.txt
-          echo MYSECRET3=${{ env.MY_SECRET }} >> temp.txt
-          cat temp.txt
+      - id: cache_node_modules
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+      - name: Clean install dependencies
+        if: steps.cache_node_modules.outputs.cache-hit != 'true'
+        run: npm ci
+      - name: Create cdk.context.json with env variables
+        run: | 
           touch cdk.context.json
-          echo { "DOMAIN_NAME": "${{ env.MY_SECRET }}", "REGION": "${{ env.MY_SECRET }}" }
-
-
+          echo '{ "DOMAIN_NAME": "${{ env.DOMAIN_NAME }}", "REGION": "${{ env.REGION }}" }' >> cdk.context.json
+      - name: Synth CDK
+        run: npm run cdk -- synth
+      - name: Deploy CDK
+        run: npm run cdk -- --role-arn ${{ env.AWS_CDK_DEPLOY_ROLE_ARN }} deploy --all --require-approval never
