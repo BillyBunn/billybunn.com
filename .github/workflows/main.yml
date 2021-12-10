@@ -90,5 +90,7 @@ jobs:
           echo '{ "DOMAIN_NAME": "${{ env.DOMAIN_NAME }}", "REGION": "${{ env.REGION }}" }' >> cdk.context.json
       - name: Synth CDK
         run: npm run cdk -- synth
+      - name: View CDK diff
+        run: npm run cdk -- diff
       - name: Deploy CDK
-        run: npm run cdk -- --role-arn ${{ env.AWS_CDK_DEPLOY_ROLE_ARN }} deploy --all --require-approval never
+        run: npm run cdk -- deploy --all --require-approval never
