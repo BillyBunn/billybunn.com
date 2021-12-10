@@ -58,6 +58,7 @@ jobs:
     name: Deploy AWS CDK stack
     needs: [cache_node_modules, build_eleventy_site]
     runs-on: ubuntu-latest
+    environment: deployment
     env:
       REGION: ${{ secrets.REGION }}
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
