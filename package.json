@@ -7,7 +7,8 @@
     "cdk": "cdk",
     "serve": "node scripts/github.ts && npx @11ty/eleventy --serve --formats=md,html,njk,jpg,png",
     "build": "npx @11ty/eleventy --formats=md,html,njk,jpg,png",
-    "clean": "rm -rv website/_site/*"
+    "clean": "rm -rv website/_site/*",
+    "glyphhanger": "glyphhanger website/__site/test-2/index.html --json --string"
   },
   "devDependencies": {
     "@types/node": "10.17.27",
@@ -30,6 +31,7 @@
     "autoprefixer": "^10.4.0",
     "aws-cdk": "^2.1.0",
     "dotenv": "^10.0.0",
+    "glyphhanger": "^5.0.0",
     "html-minifier": "^4.0.0",
     "postcss": "^8.4.4",
     "purgecss": "^4.1.3"
