@@ -7,6 +7,7 @@ const crushCSS = require("./scripts/crushcss.js");
 module.exports = function (eleventyConfig) {
   // WATCH, PASSTHROUGH, & IGNORE
   eleventyConfig.addWatchTarget("./website/css/");
+  eleventyConfig.addPassthroughCopy({"./website/static": "/"});
   eleventyConfig.ignores.add("./website/_data/**");
   eleventyConfig.ignores.add("./website/_drafts/**");
   eleventyConfig.ignores.add("./website/scripts/**");
@@ -25,6 +26,7 @@ module.exports = function (eleventyConfig) {
       let minified = htmlmin.minify(content, {
         collapseWhitespace: true,
         minifyCSS: { level: { 1: { specialComments: "0" } } },
+        minifyJS: true,
         removeComments: true,
         useShortDoctype: true,
       });
