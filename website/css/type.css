@@ -1,3 +1,55 @@
+/* SUBSET */
+@font-face {
+  font-family: "Figure Subset";
+  src: url("/fonts/figure/Figure-Regular-subset.woff2") format("woff2"),
+    url("/fonts/figure/Figure-Regular-subset.zopfli.woff") format("woff");
+}
+
+/* REGULAR */
+@font-face {
+  font-family: "Figure";
+  src: url("/fonts/figure/Figure-Regular.woff2") format("woff2"),
+    url("/fonts/figure/Figure-Regular.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Figure";
+  src: url("/fonts/figure/Figure-Italic.woff2") format("woff2"), url("/fonts/figure/Figure-Italic.woff") format("woff");
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Figure";
+  src: url("/fonts/figure/Figure-Bold.woff2") format("woff2"), url("/fonts/figure/Figure-Bold.woff") format("woff");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Figure";
+  src: url("/fonts/figure/Figure-BoldItalic.woff2") format("woff2"),
+    url("/fonts/figure/Figure-BoldItalic.woff") format("woff");
+  font-style: italic;
+  font-weight: 700;
+}
+
+/* 
+Font loading strategy:
+See script in base.njk
+
+*/
+body {
+  font-family: sans-serif;
+}
+
+.fonts-loaded-1 body {
+  font-family: "Figure Subset";
+  color: lawngreen;
+}
+
+.fonts-loaded-2 body {
+  font-family: "Figure";
+  color: darkcyan;
+}
 
 body,
 p {
@@ -13,7 +65,8 @@ h1,
 h2,
 h3,
 h4,
-h5 {
+h5,
+h6 {
   font-weight: 700;
   line-height: 1.2;
 }
@@ -37,42 +90,9 @@ h4 {
   margin-bottom: var(--space-2xs);
   margin-top: var(--space-m);
 }
-h5 {
+h5,
+h6 {
   font-size: var(--step-0);
   margin-bottom: var(--space-2xs);
   margin-top: var(--space-m);
-}
-
-/* @font-face {
-  font-family: Locale;
-  src: url('/fonts/locale/Locale-Medium.woff2') format('woff2'),
-       url('/fonts/locale/Locale-Medium.woff') format('woff');
-  font-display: swap;
-} */
-/* @font-face {
-  font-family: Lato;
-  src: url('font-lato/lato-bold-webfont.woff2') format('woff2'),
-       url('font-lato/lato-bold-webfont.woff') format('woff');
-  font-weight: 700;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: Lato;
-  src: url('font-lato/lato-italic-webfont.woff2') format('woff2'),
-       url('font-lato/lato-italic-webfont.woff') format('woff');
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: Lato;
-  src: url('font-lato/lato-bolditalic-webfont.woff2') format('woff2'),
-       url('font-lato/lato-bolditalic-webfont.woff') format('woff');
-  font-weight: 700;
-  font-style: italic;
-  font-display: swap;
-} */
-body {
-  /* font-family: Locale, Georgia, sans-serif; */
 }
