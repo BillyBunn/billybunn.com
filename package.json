@@ -8,7 +8,13 @@
     "serve": "node scripts/github.ts && npx @11ty/eleventy --serve --formats=md,html,njk,jpg,png",
     "build": "npx @11ty/eleventy --formats=md,html,njk,jpg,png",
     "clean": "rm -rv website/_site/*",
-    "glyphhanger": "glyphhanger website/__site/test-2/index.html --json --string"
+    "glyphhanger": "glyphhanger --subset=./website/static/fonts/figure/Figure-Regular.woff2 --formats=woff2 && glyphhanger --subset=./website/static/fonts/figure/Figure-Regular.woff --formats=woff-zopfli",
+    "http-server": "npx http-server ./website/_site/ --port 8080 &",
+    "subset-woff2": "glyphhanger http://127.0.0.1:8080/pages --spider-limit=0 --subset=./website/static/fonts/figure/Figure-Regular.woff2 --formats=woff2",
+    "subset-woff": "glyphhanger http://127.0.0.1:8080/pages --spider-limit=0 --subset=./website/static/fonts/figure/Figure-Regular.woff --formats=woff-zopfli",
+    "presubset": "npm run build && npm run http-server",
+    "subset": "npm run subset-woff2 && npm run subset-woff",
+    "postsubset": "pkill -f http-server"
   },
   "devDependencies": {
     "@types/node": "10.17.27",

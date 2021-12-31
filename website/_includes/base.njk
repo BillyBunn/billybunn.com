@@ -11,10 +11,6 @@ defaultTitle: "Billy Bunn"
 {% include "../css/gradient.css" %}
 {% endset %}
 
-{% set test %}
-{% include "../css/test.css" %}
-{% endset %}
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,13 +21,42 @@ defaultTitle: "Billy Bunn"
   <title>{% if title %}{{ title }} · {{ defaultTitle }}{% else %}{{ defaultTitle }}{% endif %}</title>
   <style>
     {{ css | postcss | safe }}    
-    {# {{test | postcss | safe }} #}
   </style>
+  {# Font loading #}
+  <script>
+    (function () {
+
+        // Optimization for Repeat Views
+        // if (sessionStorage.fontsLoadedFoutWithClass) {
+        //     document.documentElement.className += " fonts-loaded";
+        //     return;
+        // }
+
+        if ("fonts" in document) {
+            document.fonts.load("1em 'Figure Subset'")
+              .then(() => {
+                document.documentElement.className += " fonts-loaded-1";
+                console.log('fonts-loaded-1');
+                Promise.all([
+                    document.fonts.load("400 1em Figure"),
+                    document.fonts.load("700 1em Figure"),
+                    document.fonts.load("italic 1em Figure"),
+                    document.fonts.load("italic 700 1em Figure")
+                ]).then(function () {
+                    document.documentElement.className += " fonts-loaded-2";
+                    console.log('fonts-loaded-2');
+                    // Optimization for Repeat Views
+                    // sessionStorage.fontsLoadedFoutWithClass = true;
+                });
+            })
+        }
+    })();
+</script>
 </head>
 <body>
   <header>
     <div class='layout'>
-      <h1 class="gradient-text"><a href="/">Billy Bunn</a></h1>
+      <h1 class="gradient-text"><a href="/">billybunn.io</a></h1>
       <nav>
         <ul>
           <li><a href="/pages/">Pages</a></li>
