@@ -7,7 +7,13 @@
     "cdk": "cdk",
     "serve": "node scripts/github.ts && npx @11ty/eleventy --serve --formats=md,html,njk,jpg,png",
     "build": "npx @11ty/eleventy --formats=md,html,njk,jpg,png",
-    "clean": "rm -rv website/_site/*"
+    "clean": "rm -rv website/_site/*",
+    "http-server": "npx http-server ./website/_site/ --port 8080 &",
+    "subset-woff2": "glyphhanger --whitelist=U+21-7E --subset=./website/static/fonts/figure/Figure-Regular.woff2 --formats=woff2",
+    "subset-woff": "glyphhanger --whitelist=U+21-7E --subset=./website/static/fonts/figure/Figure-Regular.woff --formats=woff-zopfli",
+    "presubset": "npm run build && npm run http-server",
+    "subset": "npm run subset-woff2 && npm run subset-woff",
+    "postsubset": "pkill -f http-server"
   },
   "devDependencies": {
     "@types/node": "10.17.27",
@@ -30,6 +36,7 @@
     "autoprefixer": "^10.4.0",
     "aws-cdk": "^2.1.0",
     "dotenv": "^10.0.0",
+    "glyphhanger": "^5.0.0",
     "html-minifier": "^4.0.0",
     "postcss": "^8.4.4",
     "purgecss": "^4.1.3"

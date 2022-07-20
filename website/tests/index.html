@@ -1,0 +1,13 @@
+---
+title: Tests
+layout: page.njk
+---
+
+<p>Pages I'm fiddling around and learning with.</p>
+
+<ul>
+  {%- assign sorted = collections.tests | sort: 'url' -%}
+  {%- for test in sorted -%}
+  <li><a href="{{ test.url }}">{{ test.url }}</a></li>
+  {%- endfor -%}
+</ul>

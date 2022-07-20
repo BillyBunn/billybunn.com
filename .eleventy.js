@@ -5,32 +5,19 @@ const autoprefixer = require("autoprefixer");
 const crushCSS = require("./scripts/crushcss.js");
 
 module.exports = function (eleventyConfig) {
+  // WATCH, PASSTHROUGH, & IGNORE
   eleventyConfig.addWatchTarget("./website/css/");
+  eleventyConfig.addPassthroughCopy({"./website/static": "/"});
   eleventyConfig.ignores.add("./website/_data/**");
   eleventyConfig.ignores.add("./website/_drafts/**");
   eleventyConfig.ignores.add("./website/scripts/**");
 
-  // runs purgeCSS against CSS inside HTML <style> tags
-  eleventyConfig.addTransform("crushcss", async function (content, outputPath) {
-    if (!outputPath.endsWith(".html")) return content;
-    const results = await crushCSS(content);
-    return results;
-  });
+  // COLLECTIONS
+  eleventyConfig.addCollection("posts", (collectionApi) => collectionApi.getFilteredByGlob("**/posts/*/*"));
+  eleventyConfig.addCollection("projects", (collectionApi) => collectionApi.getFilteredByGlob("**/projects/*/*"));
+  eleventyConfig.addCollection("tests", (collectionApi) => collectionApi.getFilteredByGlob("**/tests/*"));
 
-  eleventyConfig.addNunjucksAsyncFilter("postcss", async function (value, callback) {
-    const processor = await postcss([autoprefixer]);
-    const processed = await processor.process(value);
-    return callback(null, processed.css);
-  });
-
-  eleventyConfig.addCollection("posts", function (collectionApi) {
-    return collectionApi.getFilteredByGlob("**/posts/*/*");
-  });
-
-  eleventyConfig.addCollection("projects", function (collectionApi) {
-    return collectionApi.getFilteredByGlob("**/projects/*/*");
-  });
-
+  // TRANSFORMS
   /**
    * Minifies HTML and CSS, removes comments
    * https://www.11ty.dev/docs/config/#transforms
@@ -40,6 +27,7 @@ module.exports = function (eleventyConfig) {
       let minified = htmlmin.minify(content, {
         collapseWhitespace: true,
         minifyCSS: { level: { 1: { specialComments: "0" } } },
+        minifyJS: true,
         removeComments: true,
         useShortDoctype: true,
       });
@@ -47,9 +35,27 @@ module.exports = function (eleventyConfig) {
     }
     return content;
   });
+  /**
+   * Applies PurgeCSS for inline styles
+   */
+  eleventyConfig.addTransform("crushcss", async function (content, outputPath) {
+    if (!outputPath.endsWith(".html")) return content;
+    const results = await crushCSS(content);
+    return results;
+  });
+
+  // FILTERS
+  /**
+   * Runs purgeCSS against CSS inside HTML <style> tags
+   */
+  eleventyConfig.addNunjucksAsyncFilter("postcss", async function (value, callback) {
+    const processor = await postcss([autoprefixer]);
+    const processed = await processor.process(value);
+    return callback(null, processed.css);
+  });
 
   /**
-   * Servers 404 page on errors
+   * Serves 404 page on errors
    */
   eleventyConfig.setBrowserSyncConfig({
     callbacks: {
@@ -68,6 +74,9 @@ module.exports = function (eleventyConfig) {
 
   return {
     dir: {
+      dataTemplateEngine: "njk",
+      htmlTemplateEngine: "njk",
+      markdownTemplateEngine: "njk",
       input: "website",
       output: "website/_site",
     },
