@@ -23,20 +23,20 @@ defaultTitle: "Billy Bunn"
     {{ css | postcss | safe }}    
   </style>
   {# Font loading #}
+  <link rel="preload" href="/fonts/figure/Figure-Regular-subset.woff2" as="font" type="font/woff2" crossorigin>
   <script>
     (function () {
 
         // Optimization for Repeat Views
-        // if (sessionStorage.fontsLoadedFoutWithClass) {
-        //     document.documentElement.className += " fonts-loaded";
-        //     return;
-        // }
+        if (sessionStorage.fontsLoaded) {
+            document.documentElement.className += " fonts-loaded-2";
+            return;
+        }
 
         if ("fonts" in document) {
-            document.fonts.load("1em 'Figure Subset'")
+            document.fonts.load("1em Figure Subset")
               .then(() => {
                 document.documentElement.className += " fonts-loaded-1";
-                console.log('fonts-loaded-1');
                 Promise.all([
                     document.fonts.load("400 1em Figure"),
                     document.fonts.load("700 1em Figure"),
@@ -44,9 +44,8 @@ defaultTitle: "Billy Bunn"
                     document.fonts.load("italic 700 1em Figure")
                 ]).then(function () {
                     document.documentElement.className += " fonts-loaded-2";
-                    console.log('fonts-loaded-2');
                     // Optimization for Repeat Views
-                    // sessionStorage.fontsLoadedFoutWithClass = true;
+                    sessionStorage.fontsLoaded = true;
                 });
             })
         }

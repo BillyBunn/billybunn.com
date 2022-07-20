@@ -1,35 +1,45 @@
 /* SUBSET */
 @font-face {
+  font-display: swap;
   font-family: "Figure Subset";
   src: url("/fonts/figure/Figure-Regular-subset.woff2") format("woff2"),
     url("/fonts/figure/Figure-Regular-subset.zopfli.woff") format("woff");
+  unicode-range: U+21-7E;
 }
 
 /* REGULAR */
 @font-face {
+  font-display: swap;
   font-family: "Figure";
+  font-style: normal;
+  font-weight: 400;
   src: url("/fonts/figure/Figure-Regular.woff2") format("woff2"),
     url("/fonts/figure/Figure-Regular.woff") format("woff");
 }
 
 @font-face {
+  font-display: swap;
   font-family: "Figure";
-  src: url("/fonts/figure/Figure-Italic.woff2") format("woff2"), url("/fonts/figure/Figure-Italic.woff") format("woff");
   font-style: italic;
+  font-weight: 400;
+  src: url("/fonts/figure/Figure-Italic.woff2") format("woff2"), url("/fonts/figure/Figure-Italic.woff") format("woff");
 }
 
 @font-face {
+  font-display: swap;
   font-family: "Figure";
-  src: url("/fonts/figure/Figure-Bold.woff2") format("woff2"), url("/fonts/figure/Figure-Bold.woff") format("woff");
+  font-style: normal;
   font-weight: 700;
+  src: url("/fonts/figure/Figure-Bold.woff2") format("woff2"), url("/fonts/figure/Figure-Bold.woff") format("woff");
 }
 
 @font-face {
+  font-display: swap;
   font-family: "Figure";
+  font-style: italic;
+  font-weight: 700;
   src: url("/fonts/figure/Figure-BoldItalic.woff2") format("woff2"),
     url("/fonts/figure/Figure-BoldItalic.woff") format("woff");
-  font-style: italic;
-  font-weight: 700;
 }
 
 /* 
@@ -43,12 +53,10 @@ body {
 
 .fonts-loaded-1 body {
   font-family: "Figure Subset";
-  color: lawngreen;
 }
 
 .fonts-loaded-2 body {
   font-family: "Figure";
-  color: darkcyan;
 }
 
 body,
