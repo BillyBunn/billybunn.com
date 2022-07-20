@@ -15,6 +15,7 @@ module.exports = function (eleventyConfig) {
   // COLLECTIONS
   eleventyConfig.addCollection("posts", (collectionApi) => collectionApi.getFilteredByGlob("**/posts/*/*"));
   eleventyConfig.addCollection("projects", (collectionApi) => collectionApi.getFilteredByGlob("**/projects/*/*"));
+  eleventyConfig.addCollection("tests", (collectionApi) => collectionApi.getFilteredByGlob("**/tests/*"));
 
   // TRANSFORMS
   /**
