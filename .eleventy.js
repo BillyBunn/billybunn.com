@@ -4,6 +4,11 @@ const postcss = require("postcss");
 const autoprefixer = require("autoprefixer");
 const crushCSS = require("./scripts/crushcss.js");
 
+const markdownIt = require('markdown-it')
+const markdownItAttrs = require('markdown-it-attrs')
+
+
+
 module.exports = function (eleventyConfig) {
   // WATCH, PASSTHROUGH, & IGNORE
   eleventyConfig.addWatchTarget("./website/css/");
@@ -16,6 +21,17 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addCollection("posts", (collectionApi) => collectionApi.getFilteredByGlob("**/posts/*/*"));
   eleventyConfig.addCollection("projects", (collectionApi) => collectionApi.getFilteredByGlob("**/projects/*/*"));
   eleventyConfig.addCollection("tests", (collectionApi) => collectionApi.getFilteredByGlob("**/tests/*"));
+
+
+  // MD LIBRARY INSTANCE
+  const mdOptions = {
+    html: true,
+    breaks: true,
+    linkify: true
+  }
+  const mdLib = markdownIt(mdOptions).use(markdownItAttrs);
+  eleventyConfig.setLibrary('md', mdLib);
+
 
   // TRANSFORMS
   /**

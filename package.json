@@ -38,6 +38,8 @@
     "dotenv": "^10.0.0",
     "glyphhanger": "^5.0.0",
     "html-minifier": "^4.0.0",
+    "markdown-it": "^13.0.1",
+    "markdown-it-attrs": "^4.1.4",
     "postcss": "^8.4.4",
     "purgecss": "^4.1.3"
   }
